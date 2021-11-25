@@ -353,7 +353,6 @@
 
 .regiter__wrap{
     margin-top: 100px;
-    margin-bottom: 80px;
 }
 
 .regiter__wrap-body{
@@ -388,6 +387,7 @@
 /* Footer  CSS*/
 .footer{
     background-color: var(--primary-color);
+    margin-top: 100px;
 }
 
 
