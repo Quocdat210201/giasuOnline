@@ -62,7 +62,7 @@
                                         <a href="" class="header__subnav-link">Bảng giá dịch vụ</a>
                                     </li>
                                     <li class="header__subnav-item">
-                                        <a href="./search.html" class="header__subnav-link">Danh sách gia sư</a>
+                                        <a href="./search.php" class="header__subnav-link">Danh sách gia sư</a>
                                     </li>
                                 </ul>
                             </li>
