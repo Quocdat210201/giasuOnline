@@ -329,3 +329,77 @@ section .login-box .form .icon-dang-nhap li i{
         font-weight: 500;
     }
 }
+
+
+/* Css avatar */
+
+.avatar__logo{
+    position: relative;
+}
+
+.avatar__logo:hover + .avatar__navbar{
+    display: block;
+}
+
+.avatar__logo-link {
+    font-size: 3.6rem;
+    color: var(--primary-color);
+}
+
+.avatar__logo::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #21d521;
+    border-radius: 100rem;
+}
+
+.avatar__logo::before {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 10px;
+    bottom: -8px;
+    right: -9px;
+    z-index: 2;
+    /* background-color: rgba(0,0,0,.6); */
+}
+
+.avatar__navbar{
+    position: absolute;
+    top: 55px;
+    right: 9%;
+    width: 170px;
+    color: var(--text-color);
+    border-radius: 2px;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    background-color: var(--white-color);
+    animation: fadeIn ease-in 0.15s;
+}
+
+.avatar__navbar:hover{
+    display: block;
+}
+
+.avatar__navbar-list{
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+.avatar__navbar-item-link{
+    font-size: 1.4rem;
+    line-height: 2rem;
+    padding: 7px 10px;
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.avatar__navbar-item-link:hover{
+    background-color: #e3e3e3;
+}

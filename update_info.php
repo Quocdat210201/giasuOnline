@@ -20,7 +20,9 @@
         <div class="header__wrap">
             <div class="header grid wide">
                 <div class="header__logo">
-                    <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
+                    <a href="./index.php" class="">
+                        <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
+                    </a>
                 </div>
                 <div class="header__right">
                     <div class="header__right-search">
