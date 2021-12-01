@@ -19,6 +19,8 @@
 
 </head>
 <body>
+
+
     <div class="app ">
         <!-- HEADER -->
         <div class="header__wrap">
@@ -35,12 +37,12 @@
                     </div>
                     <div class="header__right-button">
                     <?php if(isset($_SESSION['emailAddress'])){?>
-                            <script>alert('Đăng nhập thành công');</script>
                             <a> Chào, <?php echo $_SESSION['emailAddress'];?></a>
-                            <button class="header__btn btn" >
-                                <a href="./login.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
-                                 Đăng xuất <?php  unset($_SESSION['emailAddress']);?>
-                                </a></button>
+                            <button class="header__btn btn">
+                            <a href="./handle/signout.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                Đăng xuất
+                            </a></button>
+
                         <?php }else{ ?>
                             <button class="header__btn btn">Đăng ký</button>
                             <button class="header__btn btn" >

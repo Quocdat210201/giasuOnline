@@ -30,6 +30,7 @@ session_start();
 		$username = addslashes($username);
 		$password = strip_tags($password);
 		$password = addslashes($password);
+
 		if ($username == "" || $password =="") {?>
         <p style = "width: 400px; height: 50px;padding-left: 60px ; padding-top: 13px; color: red;
                             background-color: rgb(255, 204, 204); border-radius: 4px; margin-left: 550px">
@@ -42,7 +43,7 @@ session_start();
 			if ($num_rows==0) {?>
                 <p style = "width: 400px; height: 50px;padding-left: 60px ; padding-top: 13px; color: red;
                                     background-color: rgb(255, 204, 204); border-radius: 4px; margin-left: 550px">
-                                    Tài khoản hoặc mật khẩu không đúng !
+                                    Tài khoản hoặc mật khẩu không chính xác !
                 </p>
 			<?php }else{ ?>
 				<?php
