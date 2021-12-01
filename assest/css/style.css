@@ -105,3 +105,79 @@
 .pagination__product-item-active .pagination__product-link:hover{
     opacity: 0.8;
 }
+
+/* pesional update css */
+.pesional__update{
+    margin-top: 125px !important;
+}
+
+.pesional__update-header{
+
+}
+
+.pesional__update-heading{
+    font-size: 2rem;
+    color: var(--text-color);
+}
+
+.pesional__update-avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pesional__update-avatar-icon{
+    font-size: 13rem;
+    line-height: 15rem;
+    color: #ccc;
+}
+
+.pesional__update-edit {
+    color: var(--text-color);
+    /* font-weight: 400; */
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.pesional__update-edit i{
+    margin-left: 6px;
+}
+
+.pesional__update-edit:hover{
+    opacity: 0.8;
+}
+
+.pesional__update-info{
+    margin: 5rem 24rem 0;
+}
+
+.lable_name {
+    font-size: 1.4rem;
+    line-height: 2rem;
+    color: var(--text-color);
+    width: 96px;
+    display: inline-block;
+}
+
+.pesional-input {
+    border: 1px solid #c1bdbd;
+    border-radius: 2px;
+    outline: none;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    padding: 5px;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    width: 80%;
+
+}
+
+.pesional__update-info-gender,
+.pesional__update-info-gender form{
+    display: flex;
+}
+
+.pesional__update-btn{
+    text-align: center;
+    margin-top: 16px;
+}
