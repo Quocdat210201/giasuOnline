@@ -48,10 +48,6 @@
                                 Đăng nhập
                                 </a></button>
                         <?php } ?>
-
-                        <button class="header__btn btn">Đăng ký</button>
-                        <button class="header__btn btn">Đăng nhập</button>
-
                     </div>
                 </div>
             </div>

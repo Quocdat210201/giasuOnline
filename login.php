@@ -45,7 +45,8 @@ session_start();
                                     Tài khoản hoặc mật khẩu không đúng !
                 </p>
 			<?php }else{ ?>
-				<?php //tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
+				<?php
+                //tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
 				 $_SESSION['emailAddress'] = $username;
                 // Thực thi hành động sau khi lưu thông tin vào session
                 // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
