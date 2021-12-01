@@ -36,7 +36,7 @@ session_start();
                             Tài khoản hoặc mật khẩu không được để trống!
          </p>
 		<?php }else{ ?><?php
-			$sql = "select * from taikhoan where taiKhoan = '$username' and matKhau = '$password' ";
+			$sql = "select * from account where emailAddress = '$username' and password = '$password' ";
 			$query = mysqli_query($conn,$sql);
 			$num_rows = mysqli_num_rows($query);
 			if ($num_rows==0) {?>
@@ -46,7 +46,7 @@ session_start();
                 </p>
 			<?php }else{ ?>
 				<?php //tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
-				 $_SESSION['taiKhoan'] = $username;
+				 $_SESSION['emailAddress'] = $username;
                 // Thực thi hành động sau khi lưu thông tin vào session
                 // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
                 header('Location: index.php');
