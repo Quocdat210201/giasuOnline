@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gia sư</title>
+
     <!--Reset css--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561Yhtmlc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="./assest/css/base.css">
     <link rel="stylesheet" href="./assest/css/grid.css">
     <link rel="stylesheet" href="./assest/css/style.css">
@@ -40,7 +42,9 @@
                     <div class="header__navbar-menu">
                         <ul class="header__navbar-list">
                             <li class="header__navbar-item">
+
                                 <a href="./index.php" class="header__navbar-link">Trang chủ</a>
+
                             </li>
                             <li class="header__navbar-item">
                                 <a href="" class="header__navbar-link">Gia sư</a>

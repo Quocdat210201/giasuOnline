@@ -47,7 +47,7 @@
     top: 24.4%;
     font-size: 1.4rem;
     color: var(--text-color);
-}     
+}
 
 
 .member__search-filter{
@@ -109,10 +109,6 @@
 /* pesional update css */
 .pesional__update{
     margin-top: 125px !important;
-}
-
-.pesional__update-header{
-
 }
 
 .pesional__update-heading{
