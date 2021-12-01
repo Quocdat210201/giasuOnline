@@ -1,6 +1,8 @@
+
 <?php
     session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,6 +48,10 @@
                                 Đăng nhập
                                 </a></button>
                         <?php } ?>
+
+                        <button class="header__btn btn">Đăng ký</button>
+                        <button class="header__btn btn">Đăng nhập</button>
+
                     </div>
                 </div>
             </div>
@@ -77,7 +83,9 @@
                                         <a href="" class="header__subnav-link">Bảng giá dịch vụ</a>
                                     </li>
                                     <li class="header__subnav-item">
-                                        <a href="./search.html" class="header__subnav-link">Danh sách gia sư</a>
+
+                                        <a href="./search.php" class="header__subnav-link">Danh sách gia sư</a>
+
                                     </li>
                                 </ul>
                             </li>
@@ -315,9 +323,11 @@
                                     Toán - Cấp 1, Toán - Cấp 2, Lý Cấp 2, Tiếng Anh.
                                 </span>
                                 <p class="member__wrap-item-info-introduce">
+
                                     Sinh viên năm 2, chuyên ngành kiểm toán trường ĐH Kinh tế Luật ĐHQG TPHCM Em muốn đăng kí dạy gia sư
                                     và đã có 1 năm kinh nghiệm dạy các bé từ cấp 2 trở xuống , hiện tại em đang dạy 2 bé lớp 7 môn
                                     Toán và Lý , lớp nhận trong mùa dịch nên lương hơi thấp và em muốn đăng kí tìm lớp khác để dạy.
+
                                 </p>
                                 <button class="member__wrap-item-info-btn btn">Mời dạy</button>
                             </div>
