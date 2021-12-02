@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gia sư</title>
+
     <!--Reset css--><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561Yhtmlc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <link rel="stylesheet" href="./assest/css/base.css">
     <link rel="stylesheet" href="./assest/css/grid.css">
     <link rel="stylesheet" href="./assest/css/style.css">
@@ -20,7 +22,9 @@
         <div class="header__wrap">
             <div class="header grid wide">
                 <div class="header__logo">
-                    <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
+                    <a href="./index.php" class="">
+                        <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
+                    </a>
                 </div>
                 <div class="header__right">
                     <div class="header__right-search">
@@ -30,8 +34,49 @@
                         </a>
                     </div>
                     <div class="header__right-button">
-                        <button class="header__btn btn">Đăng ký</button>
-                        <button class="header__btn btn">Đăng nhập</button>
+                        <?php if(isset($_SESSION['emailAddress'])){?>
+                            <!-- <script>alert('Đăng nhập thành công');</script>
+                            <a> Chào, <?php echo $_SESSION['emailAddress'];?></a>
+                            <button class="header__btn btn" >
+                                <a href="./index.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                    Đăng xuất <?php  unset($_SESSION['emailAddress']);?>
+                                </a>
+                            </button> -->
+                            <div class="avatar">
+                                <div class="avatar__logo">
+                                    <a href="" class="avatar__logo-link">
+                                        <i class="avatar__logo-link-icon fas fa-user-circle"></i>
+                                    </a>
+                                </div>
+                                <div class="avatar__navbar">
+                                    <ul class="avatar__navbar-list">
+                                        <li class="avatar__navbar-item">
+                                            <a href="" class="avatar__navbar-item-link"> 
+                                                Chào, <?php echo $_SESSION['emailAddress'];?>
+                                                <!-- Chào Admin -->
+                                            </a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./index.php" class="avatar__navbar-item-link">
+                                                Đăng xuất
+                                                <?php  unset($_SESSION['emailAddress']);?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php }else{ ?>
+                            <button class="header__btn btn">Đăng ký</button>
+                            <button class="header__btn btn" >
+                                <a href="./login.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                Đăng nhập
+                                </a></button>
+                        <?php } ?>
+                        <!-- <button class="header__btn btn">Đăng ký</button>
+                        <button class="header__btn btn">Đăng nhập</button> -->
                     </div>
                 </div>
             </div>
@@ -40,7 +85,9 @@
                     <div class="header__navbar-menu">
                         <ul class="header__navbar-list">
                             <li class="header__navbar-item">
+
                                 <a href="./index.php" class="header__navbar-link">Trang chủ</a>
+
                             </li>
                             <li class="header__navbar-item">
                                 <a href="" class="header__navbar-link">Gia sư</a>

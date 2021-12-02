@@ -1,3 +1,8 @@
+
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +14,10 @@
     <link rel="stylesheet" href="./assest/css/base.css">
     <link rel="stylesheet" href="./assest/css/grid.css">
     <link rel="stylesheet" href="./assest/css/main.css">
+    <link rel="stylesheet" href="./assest/css/style.css">
     <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
-    
+
 </head>
 <body>
     <div class="app ">
@@ -19,7 +25,9 @@
         <div class="header__wrap">
             <div class="header grid wide">
                 <div class="header__logo">
-                    <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
+                   <a href="#" class="">
+                        <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
+                   </a>
                 </div>
                 <div class="header__right">
                     <div class="header__right-search">
@@ -29,6 +37,7 @@
                         </a>
                     </div>
                     <div class="header__right-button">
+
                         <?php if(isset($_SESSION['taiKhoan'])){?>
                             <script>alert('Đăng nhập thành công');</script>
                             <a> Chào, <?php echo $_SESSION['taiKhoan'];?></a>
@@ -48,6 +57,52 @@
                                 </a>
                             </button>
                         <?php } ?>
+
+                        <?php if(isset($_SESSION['emailAddress'])){?>
+                            <!-- <script>alert('Đăng nhập thành công');</script>
+                            <a> Chào, <?php echo $_SESSION['emailAddress'];?></a>
+                            <button class="header__btn btn" >
+                                <a href="./index.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                    Đăng xuất <?php  unset($_SESSION['emailAddress']);?>
+                                </a>
+                            </button> -->
+                            <div class="avatar">
+                                <div class="avatar__logo">
+                                    <a href="" class="avatar__logo-link">
+                                        <i class="avatar__logo-link-icon fas fa-user-circle"></i>
+                                    </a>
+                                </div>
+                                <div class="avatar__navbar">
+                                    <ul class="avatar__navbar-list">
+                                        <li class="avatar__navbar-item">
+                                            <a href="" class="avatar__navbar-item-link"> 
+                                                Chào, <?php echo $_SESSION['emailAddress'];?>
+                                                <!-- Chào Admin -->
+                                            </a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./index.php" class="avatar__navbar-item-link">
+                                                Đăng xuất
+                                                <?php  unset($_SESSION['emailAddress']);?>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php }else{ ?>
+                            <button class="header__btn btn">Đăng ký</button>
+                            <button class="header__btn btn" >
+                                <a href="./login.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                Đăng nhập
+                                </a></button>
+                        <?php } ?>
+                        <!-- <button class="header__btn btn">Đăng ký</button>
+                        <button class="header__btn btn">Đăng nhập</button> -->
+                    </div>
+
                 </div>
             </div>
             <div class="header__navbar">
@@ -78,7 +133,9 @@
                                         <a href="" class="header__subnav-link">Bảng giá dịch vụ</a>
                                     </li>
                                     <li class="header__subnav-item">
+
                                         <a href="./search.php" class="header__subnav-link">Danh sách gia sư</a>
+
                                     </li>
                                 </ul>
                             </li>
@@ -138,7 +195,7 @@
                             <h5 class="slider__content-item-text">Học viên tiến bộ nhanh chóng</h5>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
@@ -265,7 +322,7 @@
                                 </p>
                                 <button class="member__wrap-item-info-btn btn">Mời dạy</button>
                             </div>
-                            
+
                         </div>
                     </div>
                     <div class="member__wrap-item col l-3">
@@ -316,9 +373,11 @@
                                     Toán - Cấp 1, Toán - Cấp 2, Lý Cấp 2, Tiếng Anh.
                                 </span>
                                 <p class="member__wrap-item-info-introduce">
+
                                     Sinh viên năm 2, chuyên ngành kiểm toán trường ĐH Kinh tế Luật ĐHQG TPHCM Em muốn đăng kí dạy gia sư 
                                     và đã có 1 năm kinh nghiệm dạy các bé từ cấp 2 trở xuống , hiện tại em đang dạy 2 bé lớp 7 môn 
                                     Toán và Lý , lớp nhận trong mùa dịch nên lương hơi thấp và em muốn đăng kí tìm lớp khác để dạy. 
+
                                 </p>
                                 <button class="member__wrap-item-info-btn btn">Mời dạy</button>
                             </div>
