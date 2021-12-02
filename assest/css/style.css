@@ -105,3 +105,65 @@
 .pagination__product-item-active .pagination__product-link:hover{
     opacity: 0.8;
 }
+
+/* css cho register */
+
+.form_register {
+    position: absolute;
+     top: 10%;
+     left: 35%;
+     width: 25%;
+     border: 1px solid green;
+     padding: 20px;
+     margin: 0 auto;
+     font-weight: 700px;
+     border-radius: 20px;
+     box-shadow: 0 15px 25px rgb(0 0 0 / 60%);
+     background: rgba(240, 240, 240, 0.5);
+ }
+
+.rd_register{
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    margin-right: 5px;
+    margin-left: 25px;
+    font-size: 18px;
+}
+
+.input_text {
+    margin: 10px 0;
+	width: 87%;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #607d8b;
+    background: transparent;
+    border-radius: 30px;
+}
+
+.register_title{
+    margin:5px 0px 5px 65px;
+}
+
+.btn_register{
+    margin: 10px 0;
+    background: #5bb0ff;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 12%), 0 2px 2px rgb(0 0 0 / 12%), 0 4px 4px rgb(0 0 0 / 12%), 0 8px 8px rgb(0 0 0 / 12%), 0 16px 16px rgb(0 0 0 / 12%);
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    border: 1px solid #607d8b;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #e7eef1;
+    border-radius: 30px;
+}
+
+.btn_register:hover{
+    background: #2d9aff;
+}
