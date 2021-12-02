@@ -37,7 +37,7 @@
                         </a>
                     </div>
                     <div class="header__right-button">
-
+<!-- 
                         <?php if(isset($_SESSION['taiKhoan'])){?>
                             <script>alert('Đăng nhập thành công');</script>
                             <a> Chào, <?php echo $_SESSION['taiKhoan'];?></a>
@@ -56,7 +56,7 @@
                                 Đăng nhập
                                 </a>
                             </button>
-                        <?php } ?>
+                        <?php } ?> -->
 
                         <?php if(isset($_SESSION['emailAddress'])){?>
                             <div class="avatar">
@@ -86,11 +86,16 @@
                                 </div>
                             </div>
                         <?php }else{ ?>
-                            <button class="header__btn btn">Đăng ký</button>
+                            <button class="header__btn btn">
+                                <a href="./register.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                Đăng ký
+                                </a>
+                            </button>
                             <button class="header__btn btn" >
                                 <a href="./login.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
                                 Đăng nhập
-                                </a></button>
+                                </a>
+                            </button>
                         <?php } ?>
                         <!-- <button class="header__btn btn">Đăng ký</button>
                         <button class="header__btn btn">Đăng nhập</button> -->

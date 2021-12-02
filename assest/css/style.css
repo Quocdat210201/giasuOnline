@@ -135,7 +135,7 @@
 .input_text {
     margin: 10px 0;
 	width: 87%;
-=======
+}
 /* pesional update css */
 .pesional__update{
     margin-top: 125px !important;
@@ -207,6 +207,7 @@
     text-align: center;
     margin-top: 16px;
 }
+
 
 /* css login */
 section{

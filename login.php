@@ -75,7 +75,7 @@ session_start();
                         <input type="submit" value="Đăng Nhập" name="dangnhap">
                     </div>
                     <div class="input-form">
-                        <p>Bạn Chưa Có Tài Khoản? <a href="#">Đăng Ký</a></p>
+                        <p>Bạn Chưa Có Tài Khoản? <a href="./register.php">Đăng Ký</a></p>
                     </div>
                 </form>
                 <h3>Đăng Nhập Bằng:</h3>
