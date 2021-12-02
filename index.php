@@ -38,13 +38,6 @@
                     </div>
                     <div class="header__right-button">
                         <?php if(isset($_SESSION['emailAddress'])){?>
-                            <!-- <script>alert('Đăng nhập thành công');</script>
-                            <a> Chào, <?php echo $_SESSION['emailAddress'];?></a>
-                            <button class="header__btn btn" >
-                                <a href="./index.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
-                                    Đăng xuất <?php  unset($_SESSION['emailAddress']);?>
-                                </a>
-                            </button> -->
                             <div class="avatar">
                                 <div class="avatar__logo">
                                     <a href="" class="avatar__logo-link">
@@ -63,9 +56,9 @@
                                             <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
                                         </li>
                                         <li class="avatar__navbar-item">
-                                            <a href="./index.php" class="avatar__navbar-item-link">
+                                            <a href="./signout.php" class="avatar__navbar-item-link">
                                                 Đăng xuất
-                                                <?php  unset($_SESSION['emailAddress']);?>
+                                                
                                             </a>
                                         </li>
                                     </ul>
