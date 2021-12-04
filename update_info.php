@@ -1,3 +1,8 @@
+
+<?php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +25,9 @@
         <div class="header__wrap">
             <div class="header grid wide">
                 <div class="header__logo">
-                    <a href="./index.php" class="">
+                   <a href="#" class="">
                         <img src="./assest/img/logo.jpg" alt="" class="header__logo-img">
-                    </a>
+                   </a>
                 </div>
                 <div class="header__right">
                     <div class="header__right-search">
@@ -32,9 +37,48 @@
                         </a>
                     </div>
                     <div class="header__right-button">
-                        <button class="header__btn btn">Đăng ký</button>
-                        <button class="header__btn btn">Đăng nhập</button>
+                        <?php if(isset($_SESSION['emailAddress'])){?>
+                            <div class="avatar">
+                                <div class="avatar__logo">
+                                    <a href="" class="avatar__logo-link">
+                                        <i class="avatar__logo-link-icon fas fa-user-circle"></i>
+                                    </a>
+                                </div>
+                                <div class="avatar__navbar">
+                                    <ul class="avatar__navbar-list">
+                                        <li class="avatar__navbar-item">
+                                            <a href="" class="avatar__navbar-item-link"> 
+                                                Chào, <?php echo $_SESSION['emailAddress'];?>
+                                                <!-- Chào Admin -->
+                                            </a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./signout.php" class="avatar__navbar-item-link">
+                                                Đăng xuất
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        <?php }else{ ?>
+                            <button class="header__btn btn">
+                                <a href="./register.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                Đăng ký
+                                </a>
+                            </button>
+                            <button class="header__btn btn" >
+                                <a href="./login.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                                Đăng nhập
+                                </a>
+                            </button>
+                        <?php } ?>
+                        <!-- <button class="header__btn btn">Đăng ký</button>
+                        <button class="header__btn btn">Đăng nhập</button> -->
                     </div>
+
                 </div>
             </div>
             <div class="header__navbar">
@@ -42,7 +86,7 @@
                     <div class="header__navbar-menu">
                         <ul class="header__navbar-list">
                             <li class="header__navbar-item">
-                                <a href="./index.php" class="header__navbar-link">Trang chủ</a>
+                                <a href="" class="header__navbar-link">Trang chủ</a>
                             </li>
                             <li class="header__navbar-item">
                                 <a href="" class="header__navbar-link">Gia sư</a>
@@ -65,7 +109,9 @@
                                         <a href="" class="header__subnav-link">Bảng giá dịch vụ</a>
                                     </li>
                                     <li class="header__subnav-item">
-                                        <a href="" class="header__subnav-link">Danh sách gia sư</a>
+
+                                        <a href="./search.php" class="header__subnav-link">Danh sách gia sư</a>
+
                                     </li>
                                 </ul>
                             </li>
@@ -80,6 +126,7 @@
                 </div>
             </div>
         </div>
+                    
 
         <div class="pesional__update grid wide">
             <div class="pesional__update-header">
@@ -93,40 +140,41 @@
                         <i class="far fa-edit"></i>
                     </span>
                 </div>
-                <div class="pesional__update-info">
-                    <div class="pesional__update-info-name">
-                        <lable class="lable_name">Tên</lable>
-                        <input type="text" class="pesional-input pesional__update-info-input-name" name="name">
+                <form action="">
+                    <div class="pesional__update-info">
+                        <div class="pesional__update-info-name">
+                            <lable class="lable_name">Tên</lable>
+                            <input type="text" class="pesional-input pesional__update-info-input-name" name="name" id="name"  value="<?= $data['fullName'] ?>">
+                        </div>
+                        <div class="pesional__update-info-email">
+                            <lable class="lable_name">Email</lable>
+                            <input type="email" class="pesional-input pesional__update-info-input-email" name="email" id="email" >
+                        </div>
+                        <div class="pesional__update-info-date-of-birth">
+                            <lable class="lable_name">Ngày sinh</lable>
+                            <input type="date" class="pesional-input pesional__update-info-input-date-of-birth" name="date-of-birth" id="date">
+                        </div>
+                        <div class="pesional__update-info-gender">
+                            <lable class="lable_name">Giới tính</lable>
+                            <form>
+                                  <input type="radio" id="Name" name="gender" value="Name">
+                                  <label class = "lable_name" for="Name">Nam</label><br>
+                                  <input type="radio" id="Nu" name="gender" value="Nu">
+                                  <label class = "lable_name" for="Nu">Nữ</label><br>
+                                  <input type="radio" id="Khac" name="gender" value="Khac">
+                                  <label class = "lable_name" for="Khac">Khác</label>
+                            </form> 
+                        </div>
+                        <div class="pesional__update-info-address">
+                            <lable class="lable_name">Địa chỉ</lable>
+                            <input type="text" class="pesional-input pesional__update-info-input-address" name="address" id="address">
+                        </div>
+                        <div class="pesional__update-info-phone">
+                            <lable class="lable_name">Số điện thoại</lable>
+                            <input type="text" class="pesional-input pesional__update-info-input-phone" name="phone" id="phone">
+                        </div>
                     </div>
-                    <div class="pesional__update-info-email">
-                        <lable class="lable_name">Email</lable>
-                        <input type="email" class="pesional-input pesional__update-info-input-email" name="email">
-                    </div>
-                    <div class="pesional__update-info-date-of-birth">
-                        <lable class="lable_name">Ngày sinh</lable>
-                        <input type="date" class="pesional-input pesional__update-info-input-date-of-birth" name="date-of-birth">
-                    </div>
-                    <div class="pesional__update-info-gender">
-                        <lable class="lable_name">Giới tính</lable>
-                        <form>
-                              <input type="radio" id="Name" name="gender" value="Name">
-                              <label class = "lable_name" for="Name">Nam</label><br>
-                              <input type="radio" id="Nu" name="gender" value="Nu">
-                              <label class = "lable_name" for="Nu">Nữ</label><br>
-                              <input type="radio" id="Khac" name="gender" value="Khac">
-                              <label class = "lable_name" for="Khac">Khác</label>
-                        </form> 
-                    </div>
-
-                    <div class="pesional__update-info-address">
-                        <lable class="lable_name">Địa chỉ</lable>
-                        <input type="text" class="pesional-input pesional__update-info-input-address" name="address">
-                    </div>
-                    <div class="pesional__update-info-phone">
-                        <lable class="lable_name">Số điện thoại</lable>
-                        <input type="text" class="pesional-input pesional__update-info-input-phone" name="phone">
-                    </div>
-                </div>
+                </form>
                 <div class="pesional__update-btn">
                     <button class="pesional__update-button btn">Cập nhật</button>
                 </div>
