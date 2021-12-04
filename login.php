@@ -63,20 +63,22 @@ session_start();
                 <form action='login.php' method='POST'>
                     <div class="input-form">
                         <span>Tài khoản</span>
-                        <input type="text" name="username">
+                        <input type="text" name="username" class="input-form-text">
                     </div>
                     <div class="input-form">
                         <span>Mật Khẩu</span>
-                        <input type="password" name="password">
+                        <input type="password" name="password" class="input-form-text">
                     </div>
-                    <div class="nho-dang-nhap">
+                    <div class="nho-dang-nhap input-form-back ">
                         <label><input type="checkbox" name=""> Nhớ Đăng Nhập</label>
+                        <label><a href="index.php" class="input-form-link">Trang chủ</a></label>
                     </div>
                     <div class="input-form">
                         <input type="submit" value="Đăng Nhập" name="dangnhap">
                     </div>
-                    <div class="input-form">
-                        <p>Bạn Chưa Có Tài Khoản? <a href="./register.php">Đăng Ký</a></p>
+                    <div class="input-form input-form-active">
+                        <p>Bạn Chưa Có Tài Khoản?</p>
+                        <p><a href="./register.php">Đăng Ký</a></p>
                     </div>
                 </form>
                 <h3>Đăng Nhập Bằng:</h3>

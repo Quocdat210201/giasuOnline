@@ -242,12 +242,39 @@ section .login-box .form h2{
     color: #607d8b;
     font-weight: 500;
     font-size: 1.5em;
+    text-align: center;
+    width: 100%;
     text-transform: uppercase;
     margin-bottom: 20px;
     border-bottom: 4px solid #5bb0ff;
     display: inline-block;
     letter-spacing: 1px;
 
+}
+
+.input-form-active{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.input-form-active p{
+    display: block;
+    margin: 0;
+}
+
+.input-form-text{
+    width: 88% !important;
+}
+
+.input-form-back{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-form-link{
+    color :#5bb0ff; 
+    font-size: 1rem;
 }
 
 section .login-box .form .input-form{
@@ -274,7 +301,23 @@ section .login-box .form .input-form input{
     color: #607d8b;
     background: transparent;
     border-radius: 30px;
+}
 
+.login-back{
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.register-radio{
+    display: flex;
+    justify-content: space-around;
+}
+
+.register-radio-form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .register_title{

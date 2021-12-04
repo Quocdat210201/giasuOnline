@@ -10,16 +10,42 @@ session_start();
     </head>
     <body>
         <section>
-            <form method="post" action="register.php" class="form_register">
-            <h2 class="register_title" >Đăng ký tài khoản</h2>
-                <input type="radio" name="people" value="phuhuynh">
-                <label for="phuhuynh">Phụ Huynh</label>
-                <input type="radio" name="people" value="giasu">
-                <label for="giasu">Gia Sư</label>
-                <input class="input_text" type="email" name="email" value="" placeholder="  Nhập Email..." required/>
-                <input class="input_text" type="text" name="password" value="" placeholder="  Nhập Mật Khẩu..." required/>
-            <input class="btn_register" type="submit" name="dangky" value="Đăng Ký"/>
-            </form>
+            <div class="login-box">
+                <div class="form">
+                    <h2>Đăng ký tài khoản</h2>
+                    <form method="post" action="register.php">
+                        <div class="register-radio">
+                            <div class="input-form register-radio-form">
+                                <input type="radio" name="people" value="phuhuynh">
+                                <label for="phuhuynh">Phụ Huynh</label>
+                            </div>
+                            <div class="input-form register-radio-form">
+                                <input type="radio" name="people" value="giasu">
+                                <label for="giasu">Gia Sư</label>
+                            </div>
+                        </div>
+                        <div class="input-form">
+                            <span>
+                                <label for="giasu">Tài khoản</label>
+                            </span>
+                            <input class="input_text input-form-text" type="email" name="email" value="" required/>
+                        </div>
+                        <div class="input-form">
+                            <span>
+                                <label for="giasu">Mật khẩu</label>
+                            </span>
+                            <input class="input_text input-form-text" type="text" name="password" value="" required/>
+                        </div>
+                        <div class="input-form">
+                            <input class="btn_register" type="submit" name="dangky" value="Đăng Ký"/>
+                        </div>
+                        <div class="input-form input-form-active">
+                            <p><a href="./index.php">Trang chủ</a></p>
+                            <p><a href="./login.php">Đăng nhập</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
         <?php
             header('Content-Type: text/html; charset=utf-8');

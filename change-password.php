@@ -39,26 +39,26 @@ if($num>0){
                 <form action='change-password.php' method='POST'>
                     <div class="input-form">
                         <span>Tài khoản</span>
-                        <input type="text" name="emailAddress">
+                        <input type="text" name="emailAddress" class="input-form-text">
                     </div>
                     <div class="input-form">
                         <span>Mật Khẩu cũ</span>
-                        <input type="text" name="oldpassword">
+                        <input type="password" name="oldpassword" class="input-form-text">
                     </div>
                     <div class="input-form">
                         <span>Mật Khẩu mới</span>
-                        <input type="text" name="newpassword">
+                        <input type="password" name="newpassword" class="input-form-text">
                     </div>
                     <div class="input-form">
                         <span>xác nhận mật khẩu mới</span>
-                        <input type="text" name="newpassword1">
+                        <input type="password" name="newpassword1" class="input-form-text">
                     </div>
                     <div class="input-form">
                         <input type="submit" value="Đổi mật khẩu" name="doimatkhau">
                     </div>
-                    <a href="index.php" style = "color:green">
-                                quay về
-                            </a></button>
+                    <a href="index.php" class = "login-back input-form-link">
+                                Trang chủ
+                    </a>
                 </form>
             </div>
         </div>

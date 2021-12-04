@@ -37,7 +37,7 @@
                         </a>
                     </div>
                     <div class="header__right-button">
-                        <?php if(isset($_SESSION['emailAddress'])){?>
+                    <?php if(isset($_SESSION['emailAddress'])){?>
                             <div class="avatar">
                                 <div class="avatar__logo">
                                     <a href="" class="avatar__logo-link">
@@ -54,6 +54,9 @@
                                         </li>
                                         <li class="avatar__navbar-item">
                                             <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./change-password.php" class="avatar__navbar-item-link">Đổi mật khẩu</a>
                                         </li>
                                         <li class="avatar__navbar-item">
                                             <a href="./signout.php" class="avatar__navbar-item-link">
