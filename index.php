@@ -56,6 +56,9 @@
                                             <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
                                         </li>
                                         <li class="avatar__navbar-item">
+                                            <a href="./change-password.php" class="avatar__navbar-item-link">Đổi mật khẩu</a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
                                             <a href="./signout.php" class="avatar__navbar-item-link">
                                                 Đăng xuất
                                             </a>
