@@ -54,7 +54,7 @@
                                             </a>
                                         </li>
                                         <li class="avatar__navbar-item">
-                                            <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
+                                            <a href="./account.php" class="avatar__navbar-item-link">Quản lí tài khoản</a>
                                         </li>
                                         <li class="avatar__navbar-item">
                                             <a href="./change-password.php" class="avatar__navbar-item-link">Đổi mật khẩu</a>

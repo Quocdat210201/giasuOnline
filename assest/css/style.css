@@ -136,79 +136,6 @@
     margin: 10px 0;
 	width: 87%;
 }
-/* pesional update css */
-.pesional__update{
-    margin-top: 125px !important;
-}
-
-.pesional__update-heading{
-    font-size: 2rem;
-    color: var(--text-color);
-}
-
-.pesional__update-avatar{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.pesional__update-avatar-icon{
-    font-size: 13rem;
-    line-height: 15rem;
-    color: #ccc;
-}
-
-.pesional__update-edit {
-    color: var(--text-color);
-    /* font-weight: 400; */
-    font-size: 1.8rem;
-    cursor: pointer;
-}
-
-.pesional__update-edit i{
-    margin-left: 6px;
-}
-
-.pesional__update-edit:hover{
-    opacity: 0.8;
-}
-
-.pesional__update-info{
-    margin: 5rem 24rem 0;
-    display: block;
-}
-
-.lable_name {
-    font-size: 1.4rem;
-    line-height: 2rem;
-    color: var(--text-color);
-    width: 96px;
-    display: inline-block;
-}
-
-.pesional-input {
-    border: 1px solid #c1bdbd;
-    border-radius: 2px;
-    outline: none;
-    font-size: 1.4rem;
-    line-height: 2.4rem;
-    padding: 5px;
-    color: var(--text-color);
-    margin-bottom: 10px;
-    width: 80%;
-
-}
-
-.pesional__update-info-gender,
-.pesional__update-info-gender form{
-    display: flex;
-}
-
-.pesional__update-btn{
-    text-align: center;
-    margin-top: 16px;
-}
-
 
 /* css login */
 section{
@@ -505,4 +432,58 @@ section .login-box .form .icon-dang-nhap li i{
 .avatar__navbar-item-link:hover{
     background-color: #e3e3e3;
 
+}
+
+
+/* Account css */
+.account-header{
+    font-size: 2.1rem;
+    line-height: 3rem;
+    color: var(--text-color);
+}
+
+.account-table{
+    border-collapse: collapse !important;
+    width: 100%;
+    text-align: left;
+}
+
+th, tr, td{
+    border-collapse: collapse !important;
+    border: 1px solid #ccc !important;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    padding: 10px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.row th{
+    text-align: center;
+}
+
+.input-form{
+    margin-bottom: 16px;
+}
+
+.input-form-input{
+    font-size: 1.5rem;
+    padding: 4px 10px;
+    outline: none;
+    background: #e1dede;
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 30%;
+}
+
+.input-form-lable-text{
+    display: inline-block;
+    width: 110px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--text-color);
+}
+
+.input-form-btn{
+    margin-left: 28%;
+    margin-top: 11px;
 }

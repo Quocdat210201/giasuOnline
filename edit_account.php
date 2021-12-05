@@ -53,7 +53,7 @@
                                             </a>
                                         </li>
                                         <li class="avatar__navbar-item">
-                                            <a href="./update_info.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
+                                            <a href="./account.php" class="avatar__navbar-item-link">Quản lí tài khoản</a>
                                         </li>
                                         <li class="avatar__navbar-item">
                                             <a href="./change-password.php" class="avatar__navbar-item-link">Đổi mật khẩu</a>
@@ -129,61 +129,76 @@
                 </div>
             </div>
         </div>
-                    
+               
+        <div class="account grid wide mt-125">
+            <h3 class="account-header" >Thông tin thành viên</h3>
 
-        <div class="pesional__update grid wide">
-            <div class="pesional__update-header">
-                <h4 class="pesional__update-heading">Hồ sơ của tôi</h4>
-            </div>
-            <div class="pesional__update-body">
-                <div class="pesional__update-avatar">
-                    <i class="pesional__update-avatar-icon fas fa-user-circle"></i>
-                    <span class="pesional__update-edit">
-                        Chỉnh sửa
-                        <i class="far fa-edit"></i>
-                    </span>
-                </div>
-                <form action="">
-                    <div class="pesional__update-info">
-                        <div class="pesional__update-info-name">
-                            <lable class="lable_name">Tên</lable>
-                            <input type="text" class="pesional-input pesional__update-info-input-name" name="name" id="name"  value="<?= $data['fullName'] ?>">
-                        </div>
-                        <div class="pesional__update-info-email">
-                            <lable class="lable_name">Email</lable>
-                            <input type="email" class="pesional-input pesional__update-info-input-email" name="email" id="email" >
-                        </div>
-                        <div class="pesional__update-info-date-of-birth">
-                            <lable class="lable_name">Ngày sinh</lable>
-                            <input type="date" class="pesional-input pesional__update-info-input-date-of-birth" name="date-of-birth" id="date">
-                        </div>
-                        <div class="pesional__update-info-gender">
-                            <lable class="lable_name">Giới tính</lable>
-                            <form>
-                                  <input type="radio" id="Name" name="gender" value="Name">
-                                  <label class = "lable_name" for="Name">Nam</label><br>
-                                  <input type="radio" id="Nu" name="gender" value="Nu">
-                                  <label class = "lable_name" for="Nu">Nữ</label><br>
-                                  <input type="radio" id="Khac" name="gender" value="Khac">
-                                  <label class = "lable_name" for="Khac">Khác</label>
-                            </form> 
-                        </div>
-                        <div class="pesional__update-info-address">
-                            <lable class="lable_name">Địa chỉ</lable>
-                            <input type="text" class="pesional-input pesional__update-info-input-address" name="address" id="address">
-                        </div>
-                        <div class="pesional__update-info-phone">
-                            <lable class="lable_name">Số điện thoại</lable>
-                            <input type="text" class="pesional-input pesional__update-info-input-phone" name="phone" id="phone">
-                        </div>
+            <?php
+		    require_once("connection.php");
+
+            // lưu
+            if (isset($_POST["save"])) {
+		    	$tutorID = $_POST["tutorID"];
+		    	$fullName = $_POST["fullName"];
+		    	$emailAddress = $_POST["emailAddress"];
+		    	$phone = $_POST["phone"];
+		    	$address = $_POST["address"];
+		    	$sql = "UPDATE tutor SET  fullName = '$fullName', emailAddress = '$emailAddress', phone = '$phone' , address = '$address' where tutorID = $tutorID";
+		    	mysqli_query($conn, $sql);
+		    }
+
+            $id = "";
+		    $name = "";
+		    $email = "";
+		    $gender = "";
+		    $phone = "";
+		    $address = "";
+		    if (isset($_GET["tutorID"])) {
+		    	//thực hiện việc lấy thông tin user
+		    	$id = $_GET["tutorID"];
+		    	$sql = "SELECT * FROM tutor where tutorID = $id";
+		    	$query = mysqli_query($conn,$sql);
+                while ($data = mysqli_fetch_array($query)) {
+		    		$name = $data["fullName"];
+		    		$email = $data["emailAddress"];
+		    		$gender = $data["gender"];
+		    		$phone = $data["phone"];
+		    		$address = $data["address"];
+		    	}
+		    }
+		    ?>
+
+            <form action="edit_account.php" method="POST">
+                <table class="account-table">
+                    <div class="input-form">
+                        <input class="input-form-input" type="hidden" name="tutorID" value="<?php echo $id; ?> ">
                     </div>
-                </form>
-                <div class="pesional__update-btn">
-                    <button class="pesional__update-button btn">Cập nhật</button>
-                </div>
-            </div>
+                    <div class="input-form">
+                        <lable class="input-form-lable-text">Họ tên</lable>
+                        <input class="input-form-input" type="text" name="fullName" value="<?php echo $name; ?>" >
+                    </div>
+                    <div class="input-form">
+                        <lable class="input-form-lable-text">Địa chỉ email</lable>
+                        <input class="input-form-input" type="text" name="emailAddress" value="<?php echo $email; ?>">
+                    </div>
+                    <div class="input-form">
+                        <lable class="input-form-lable-text">Giới tính </lable>
+                        <input class="input-form-input" type="text" name="gender" value="<?php echo $gender; ?>">
+                    </div>
+                    <div class="input-form">
+                        <lable class="input-form-lable-text">Số điện thoại </lable>
+                        <input class="input-form-input" type="text" name="phone" value="<?php echo $phone; ?>" >
+                    </div>
+                    <div class="input-form">
+                        <lable class="input-form-lable-text">Địa chỉ </lable>
+                       <input class="input-form-input" type="text" name="address" value="<?php echo $address; ?>" >                      
+                    </div>
+                    <div class="imput-form">
+                        <input class="btn input-form-btn" type="submit" name="save" value="Lưu thông tin">
+                    </div>
+                </table>    
+            </form>    
         </div>
-
 
 
         <!-- FOOTER -->
