@@ -487,3 +487,36 @@ th, tr, td{
     margin-left: 28%;
     margin-top: 11px;
 }
+
+/*danh sach lop*/
+.member__wrap-content{
+    display: none;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.bla-common-shadow{
+    display: block;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    position: relative;
+    text-align: start;
+}
+
+.row-request{
+    width: 60%;
+    display: inline-block;
+    margin: 10px 0;
+}
+
+.one-row-class{
+    margin-left:40px;
+}
+
+a {
+    text-decoration: none;
+}
