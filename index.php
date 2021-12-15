@@ -47,13 +47,16 @@
                                 <div class="avatar__navbar">
                                     <ul class="avatar__navbar-list">
                                         <li class="avatar__navbar-item">
-                                            <a href="" class="avatar__navbar-item-link"> 
+                                            <a href="" class="avatar__navbar-item-link">
                                                 Chào, <?php echo $_SESSION['emailAddress'];?>
                                                 <!-- Chào Admin -->
                                             </a>
                                         </li>
                                         <li class="avatar__navbar-item">
                                             <a href="./account.php" class="avatar__navbar-item-link">Quản lí tài khoản</a>
+                                        </li>
+                                        <li class="avatar__navbar-item">
+                                            <a href="./edit_account.php" class="avatar__navbar-item-link">Thông tin cá nhân</a>
                                         </li>
                                         <li class="avatar__navbar-item">
                                             <a href="./change-password.php" class="avatar__navbar-item-link">Đổi mật khẩu</a>
@@ -353,9 +356,9 @@
                                 </span>
                                 <p class="member__wrap-item-info-introduce">
 
-                                    Sinh viên năm 2, chuyên ngành kiểm toán trường ĐH Kinh tế Luật ĐHQG TPHCM Em muốn đăng kí dạy gia sư 
-                                    và đã có 1 năm kinh nghiệm dạy các bé từ cấp 2 trở xuống , hiện tại em đang dạy 2 bé lớp 7 môn 
-                                    Toán và Lý , lớp nhận trong mùa dịch nên lương hơi thấp và em muốn đăng kí tìm lớp khác để dạy. 
+                                    Sinh viên năm 2, chuyên ngành kiểm toán trường ĐH Kinh tế Luật ĐHQG TPHCM Em muốn đăng kí dạy gia sư
+                                    và đã có 1 năm kinh nghiệm dạy các bé từ cấp 2 trở xuống , hiện tại em đang dạy 2 bé lớp 7 môn
+                                    Toán và Lý , lớp nhận trong mùa dịch nên lương hơi thấp và em muốn đăng kí tìm lớp khác để dạy.
 
                                 </p>
                                 <button class="member__wrap-item-info-btn btn">Mời dạy</button>

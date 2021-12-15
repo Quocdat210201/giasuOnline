@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./assest/css/main.css">
     <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
-    
+
 </head>
 <body>
     <div class="app ">
@@ -51,7 +51,7 @@
                                 <div class="avatar__navbar">
                                     <ul class="avatar__navbar-list">
                                         <li class="avatar__navbar-item">
-                                            <a href="" class="avatar__navbar-item-link"> 
+                                            <a href="" class="avatar__navbar-item-link">
                                                 Chào, <?php echo $_SESSION['emailAddress'];?>
                                                 <!-- Chào Admin -->
                                             </a>
@@ -181,7 +181,7 @@
                                 <option value="">  Giáo viên</option>
                                 <option value="">  Sinh viên</option>
                             </select>
-                        </div> 
+                        </div>
                         <div class="member__search-btn">
                             <button class="btn">Lọc</button>
                         </div>
@@ -192,12 +192,12 @@
                 </div>
                 <div class="member__wrap member__wrap-content">
                     <?php
-                        $connect = mysqli_connect('127.0.0.1','root','hoangkha17','giasuonline');
+                        $connect = mysqli_connect('127.0.0.1','root','','giasuonline');
                         if(mysqli_connect_errno()!==0)
                         {
                             die("Error: Could not connect to the database. An error ".mysqli_connect_error()." ocurred.");
                         }
-                        mysqli_set_charset($connect,'utf8');           
+                        mysqli_set_charset($connect,'utf8');
                         $sql = "SELECT monhoc, hinhthuc, hocphi, diachi, ghichu FROM lophoc LIMIT 6";
                         $result = mysqli_query($connect, $sql);
                             while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
@@ -260,7 +260,7 @@
                                         echo "</div>";
                                     echo "</div>";
                                     echo "<br>";
-                                }else 
+                                }else
                                 {
                                     echo "&nbsp;";
                                 }

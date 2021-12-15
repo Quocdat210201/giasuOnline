@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="./assest/css/main.css">
     <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
-    
+
 </head>
 <body>
     <div class="app ">
@@ -47,7 +47,7 @@
                                 <div class="avatar__navbar">
                                     <ul class="avatar__navbar-list">
                                         <li class="avatar__navbar-item">
-                                            <a href="" class="avatar__navbar-item-link"> 
+                                            <a href="" class="avatar__navbar-item-link">
                                                 Chào, <?php echo $_SESSION['emailAddress'];?>
                                                 <!-- Chào Admin -->
                                             </a>
@@ -129,49 +129,65 @@
                 </div>
             </div>
         </div>
-               
+
         <div class="account grid wide mt-125">
             <h3 class="account-header" >Thông tin thành viên</h3>
 
             <?php
-		    require_once("connection.php");
+		    // require_once("connection.php");
 
-            // lưu
-            if (isset($_POST["save"])) {
-		    	$tutorID = $_POST["tutorID"];
-		    	$fullName = $_POST["fullName"];
-		    	$emailAddress = $_POST["emailAddress"];
-		    	$phone = $_POST["phone"];
-		    	$address = $_POST["address"];
-		    	$sql = "UPDATE tutor SET  fullName = '$fullName', emailAddress = '$emailAddress', phone = '$phone' , address = '$address' where tutorID = $tutorID";
-		    	mysqli_query($conn, $sql);
-		    }
-
-            $id = "";
+            //khai bao
+            $adid = "";
 		    $name = "";
 		    $email = "";
 		    $gender = "";
 		    $phone = "";
 		    $address = "";
-		    if (isset($_GET["tutorID"])) {
+
+		    if (isset($_SESSION['emailAddress'])) {
 		    	//thực hiện việc lấy thông tin user
-		    	$id = $_GET["tutorID"];
-		    	$sql = "SELECT * FROM tutor where tutorID = $id";
-		    	$query = mysqli_query($conn,$sql);
-                while ($data = mysqli_fetch_array($query)) {
-		    		$name = $data["fullName"];
-		    		$email = $data["emailAddress"];
-		    		$gender = $data["gender"];
-		    		$phone = $data["phone"];
-		    		$address = $data["address"];
-		    	}
-		    }
+                $conn = mysqli_connect('localhost','root','','giasuonline');
+                if(mysqli_connect_errno()!==0)
+                {
+                    die("Error: Could not connect to the database. An error ".mysqli_connect_error()." ocurred.");
+                }else {
+                    mysqli_set_charset($conn,'utf8');
+                    $email = $_SESSION['emailAddress'];
+                    $sql = "SELECT adminID, fullName, emailAddress, gender, phone, address FROM administrator WHERE emailAddress = '$email'";
+                    $query = mysqli_query($conn,$sql);
+                    while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                        if($data != false) {
+                            $adid = $data["adminID"];
+                            $name = $data["fullName"];
+                            $email = $data["emailAddress"];
+                            $gender = $data["gender"];
+                            $phone = $data["phone"];
+                            $address = $data["address"];
+                        }
+                    }
+                }
+                // lưu
+                if (isset($_POST["save"])) {
+                    $adid = $_POST["adminID"];
+                    $name = $_POST["fullName"];
+                    $emailAddress = $_POST["emailAddress"];
+                    $gender = $_POST["gender"];
+                    $phone = $_POST["phone"];
+                    $address = $_POST["address"];
+                    $conn = mysqli_connect('localhost','root','','giasuonline');
+                    $sql = "UPDATE administrator SET  fullName = '$name', emailAddress = '$emailAddress', gender = '$gender',
+                                                phone = '$phone' , address = '$address' where adminID = '$adid' ";
+                    mysqli_query($conn, $sql);?>
+
+                    <script> window.alert("Cập nhật thông tin thành công") </script>
+                <?php  }
+            }
 		    ?>
 
             <form action="edit_account.php" method="POST">
                 <table class="account-table">
                     <div class="input-form">
-                        <input class="input-form-input" type="hidden" name="tutorID" value="<?php echo $id; ?> ">
+                        <input class="input-form-input" type="hidden" name="adminID" value="<?php echo $adid; ?> ">
                     </div>
                     <div class="input-form">
                         <lable class="input-form-lable-text">Họ tên</lable>
@@ -191,13 +207,14 @@
                     </div>
                     <div class="input-form">
                         <lable class="input-form-lable-text">Địa chỉ </lable>
-                       <input class="input-form-input" type="text" name="address" value="<?php echo $address; ?>" >                      
+                       <input class="input-form-input" type="text" name="address" value="<?php echo $address; ?>" >
                     </div>
                     <div class="imput-form">
                         <input class="btn input-form-btn" type="submit" name="save" value="Lưu thông tin">
                     </div>
-                </table>    
-            </form>    
+                </table>
+            </form>
+
         </div>
 
 
