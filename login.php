@@ -18,14 +18,14 @@ session_start();
 <!-- Xu ly dang nhap -------------------------------------------------------------------------->
 <?php
 	//Gọi file connection.php
-	require_once("connection.php");
+	include( 'includes/connection.php');
 	// Kiểm tra nếu người dùng đã ân nút đăng nhập thì mới xử lý
 	if (isset($_POST["dangnhap"])) {
 		// lấy thông tin người dùng
 		$username = $_POST["username"];
 		$password = $_POST["password"];
+
 		//làm sạch thông tin, xóa bỏ các tag html, ký tự đặc biệt
-		//mà người dùng cố tình thêm vào để tấn công theo phương thức sql injection
 		$username = strip_tags($username);
 		$username = addslashes($username);
 		$password = strip_tags($password);
@@ -36,7 +36,7 @@ session_start();
                             Tài khoản hoặc mật khẩu không được để trống!
          </p>
 		<?php }else{ ?><?php
-			$sql = "select * from account where emailAddress = '$username' and password = '$password' ";
+			$sql = "SELECT emailAddress, password, permissionID from account where emailAddress = '$username' and password = '$password' ";
 			$query = mysqli_query($conn,$sql);
 			$num_rows = mysqli_num_rows($query);
 			if ($num_rows==0) {?>
@@ -45,16 +45,41 @@ session_start();
                                     Tài khoản hoặc mật khẩu không đúng !
                 </p>
 			<?php }else{ ?>
-				<?php //tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
-				 $_SESSION['emailAddress'] = $username;
-                // Thực thi hành động sau khi lưu thông tin vào session
-                // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
-                header('Location: index.php');
+				<?php
+                    $maQuyen = "";
+                    $conn = mysqli_connect('localhost','root','','giasuonline');
+                    mysqli_set_charset($conn,'utf8');
+                    $query = mysqli_query($conn,$sql);
+                    $data = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                    $maQuyen = $data["permissionID"];
+
+                    if ($maQuyen == 1) {
+                        $name = "";
+                        $sql = "SELECT fullName FROM administrator WHERE emailAddress = '$username'";
+                        $query = mysqli_query($conn,$sql);
+                        while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                            if($data != false) {
+                                $name = $data["fullName"];
+                            }
+                        }
+                        $_SESSION['name'] = $name;
+                        header('Location: admin/index.php');
+                    } else {
+                        $name = "";
+                        $sql = "SELECT fullName FROM parents WHERE emailAddress = '$username'";
+                        $query = mysqli_query($conn, $sql);
+                        while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                            if($data != false) {
+                                $name = $data["fullName"];
+                            }
+                        }
+                        $_SESSION['name'] = $name;
+                        header('Location: index.php');
+                    }
 			}
 		}
 	}
 ?>
-<!-- -------------------------------------------------------------------------------------------- --------------------->
     <section>
         <div class="login-box">
             <div class="form">

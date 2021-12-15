@@ -9,6 +9,9 @@ session_start();
         <link rel="stylesheet" href="./assest/css/style.css">
     </head>
     <body>
+        <!-- HEADER -->
+        <?php include( 'includes/header.php');?>
+        
         <section>
             <div class="login-box">
                 <div class="form">
@@ -99,7 +102,9 @@ session_start();
                     }
                 }
             }
-            
+
         ?>
+        <!-- FOOTER -->
+        <?php include( 'includes/footer.php');?>
     </body>
 </html>

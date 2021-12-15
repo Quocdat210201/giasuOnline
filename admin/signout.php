@@ -3,5 +3,5 @@
     // Xoá session
     unset($_SESSION['name']);
     // Trở về trang chủ
-    header('Location: index.php');
+    header('Location: ../index.php');
 ?>
