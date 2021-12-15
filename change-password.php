@@ -4,17 +4,24 @@ session_start();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đổi mật khẩu</title>
+    <title>Thay Đổi mật khẩu</title>
+    <!--Reset css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+                integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assest/css/base.css">
+    <link rel="stylesheet" href="./assest/css/grid.css">
+    <link rel="stylesheet" href="./assest/css/main.css">
     <link rel="stylesheet" href="./assest/css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
 </head>
 <body>
-<?php include_once('connection.php');
+<?php include_once('./include/connection.php');
 if(isset($_POST['doimatkhau'])){
     $user = $_POST['emailAddress'];
     $oldpass = $_POST['oldpassword'];
@@ -27,11 +34,13 @@ if($num>0){
     $con = mysqli_query($conn, "update account set password = '$newpass' where emailAddress = '$user'");
     $_SESSION['msg1'] = "Đổi mật khẩu thành công";
 }else{
-    $_SESSION['msg1'] = "Mật khẩu không đúng"; 
-}    
-}   
-?>    
+    $_SESSION['msg1'] = "Mật khẩu không đúng";
+}
+}
+?>
 <p style= "color:red;"><?php echo $_SESSION['msg1'];?><?php $_SESSION['msg1'] = ""; ?></p>
+
+<?php include( 'includes/header.php');?>
 <section>
         <div class="login-box">
             <div class="form">

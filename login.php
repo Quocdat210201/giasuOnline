@@ -5,27 +5,33 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Đăng Nhập</title>
+    <!--Reset css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+                integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assest/css/base.css">
+    <link rel="stylesheet" href="./assest/css/grid.css">
+    <link rel="stylesheet" href="./assest/css/main.css">
     <link rel="stylesheet" href="./assest/css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
 </head>
 
 <body>
 <!-- Xu ly dang nhap -------------------------------------------------------------------------->
 <?php
 	//Gọi file connection.php
-	require_once("connection.php");
+	include( 'includes/connection.php');
 	// Kiểm tra nếu người dùng đã ân nút đăng nhập thì mới xử lý
 	if (isset($_POST["dangnhap"])) {
 		// lấy thông tin người dùng
 		$username = $_POST["username"];
 		$password = $_POST["password"];
+
 		//làm sạch thông tin, xóa bỏ các tag html, ký tự đặc biệt
-		//mà người dùng cố tình thêm vào để tấn công theo phương thức sql injection
 		$username = strip_tags($username);
 		$username = addslashes($username);
 		$password = strip_tags($password);
@@ -36,7 +42,7 @@ session_start();
                             Tài khoản hoặc mật khẩu không được để trống!
          </p>
 		<?php }else{ ?><?php
-			$sql = "select * from account where emailAddress = '$username' and password = '$password' ";
+			$sql = "SELECT emailAddress, password, permissionID from account where emailAddress = '$username' and password = '$password' ";
 			$query = mysqli_query($conn,$sql);
 			$num_rows = mysqli_num_rows($query);
 			if ($num_rows==0) {?>
@@ -45,17 +51,47 @@ session_start();
                                     Tài khoản hoặc mật khẩu không đúng !
                 </p>
 			<?php }else{ ?>
-				<?php //tiến hành lưu tên đăng nhập vào session để tiện xử lý sau này
-				 $_SESSION['emailAddress'] = $username;
-				 $_SESSION['fullName'] = $username;
-                // Thực thi hành động sau khi lưu thông tin vào session
-                // ở đây mình tiến hành chuyển hướng trang web tới một trang gọi là index.php
-                header('Location: index.php');
+				<?php
+                    $maQuyen = "";
+                    $id = "";
+                    $name = "";
+
+                    $conn = mysqli_connect('localhost','root','','giasuonline');
+                    mysqli_set_charset($conn,'utf8');
+                    $query = mysqli_query($conn,$sql);
+                    $data = mysqli_fetch_array($query, MYSQLI_ASSOC);
+                    $maQuyen = $data["permissionID"];
+
+                    if ($maQuyen == 1) {
+                        $sql = "SELECT adminID, fullName FROM administrator WHERE emailAddress = '$username'";
+                        $query = mysqli_query($conn,$sql);
+                        while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                            if($data != false) {
+                                $id = $data["adminID"];
+                                $name = $data["fullName"];
+                            }
+                        }
+                        $_SESSION['id'] = $id;
+                        $_SESSION['name'] = $name;
+                        header('Location: admin/index.php');
+
+                    } else {
+                        $sql = "SELECT parentsID, fullName FROM parents WHERE emailAddress = '$username'";
+                        $query = mysqli_query($conn, $sql);
+                        while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                            if($data != false) {
+                                $id = $data["parentsID"];
+                                $name = $data["fullName"];
+                            }
+                        }
+                        $_SESSION['id'] = $id;
+                        $_SESSION['name'] = $name;
+                        header('Location: index.php');
+                    }
 			}
 		}
 	}
 ?>
-<!-- -------------------------------------------------------------------------------------------- --------------------->
     <section>
         <div class="login-box">
             <div class="form">
