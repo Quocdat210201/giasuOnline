@@ -5,13 +5,19 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
+    <title>Đăng Nhập</title>
+    <!--Reset css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+                integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+                crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./assest/css/base.css">
+    <link rel="stylesheet" href="./assest/css/grid.css">
+    <link rel="stylesheet" href="./assest/css/main.css">
     <link rel="stylesheet" href="./assest/css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
 </head>
 
 <body>
@@ -47,6 +53,9 @@ session_start();
 			<?php }else{ ?>
 				<?php
                     $maQuyen = "";
+                    $id = "";
+                    $name = "";
+
                     $conn = mysqli_connect('localhost','root','','giasuonline');
                     mysqli_set_charset($conn,'utf8');
                     $query = mysqli_query($conn,$sql);
@@ -54,25 +63,28 @@ session_start();
                     $maQuyen = $data["permissionID"];
 
                     if ($maQuyen == 1) {
-                        $name = "";
-                        $sql = "SELECT fullName FROM administrator WHERE emailAddress = '$username'";
+                        $sql = "SELECT adminID, fullName FROM administrator WHERE emailAddress = '$username'";
                         $query = mysqli_query($conn,$sql);
                         while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                             if($data != false) {
+                                $id = $data["adminID"];
                                 $name = $data["fullName"];
                             }
                         }
+                        $_SESSION['id'] = $id;
                         $_SESSION['name'] = $name;
                         header('Location: admin/index.php');
+
                     } else {
-                        $name = "";
-                        $sql = "SELECT fullName FROM parents WHERE emailAddress = '$username'";
+                        $sql = "SELECT parentsID, fullName FROM parents WHERE emailAddress = '$username'";
                         $query = mysqli_query($conn, $sql);
                         while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                             if($data != false) {
+                                $id = $data["parentsID"];
                                 $name = $data["fullName"];
                             }
                         }
+                        $_SESSION['id'] = $id;
                         $_SESSION['name'] = $name;
                         header('Location: index.php');
                     }

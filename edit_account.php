@@ -50,11 +50,11 @@
                 }else {
                     mysqli_set_charset($conn,'utf8');
                     $id = $_SESSION['id'];
-                    $sql = "SELECT adminID, fullName, emailAddress, gender, phone, address FROM administrator WHERE adminID = '$id'";
+                    $sql = "SELECT parentsID, fullName, emailAddress, gender, phone, address FROM parents WHERE parentsID = '$id'";
                     $query = mysqli_query($conn,$sql);
                     while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
                         if($data != false) {
-                            $id = $data["adminID"];
+                            $tid = $data["parentsID"];
                             $name = $data["fullName"];
                             $email = $data["emailAddress"];
                             $gender = $data["gender"];
@@ -65,15 +65,15 @@
                 }
                 // lưu
                 if (isset($_POST["save"])) {
-                    $id = $_POST["adminID"];
+                    $id = $_POST["parentsID"];
                     $name = $_POST["fullName"];
                     $emailAddress = $_POST["emailAddress"];
                     $gender = $_POST["gender"];
                     $phone = $_POST["phone"];
                     $address = $_POST["address"];
                     $conn = mysqli_connect('localhost','root','','giasuonline');
-                    $sql = "UPDATE administrator SET  fullName = '$name', emailAddress = '$emailAddress', gender = '$gender',
-                                                phone = '$phone' , address = '$address' where adminID = '$id' ";
+                    $sql = "UPDATE parents SET  fullName = '$name', emailAddress = '$emailAddress', gender = '$gender',
+                                                phone = '$phone' , address = '$address' where parentsID = '$id' ";
                     mysqli_query($conn, $sql);?>
 
                     <script> window.alert("Cập nhật thông tin thành công") </script>

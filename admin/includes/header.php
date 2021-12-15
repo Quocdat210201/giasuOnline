@@ -66,7 +66,7 @@
                     <div class="header__navbar-menu">
                         <ul class="header__navbar-list">
                             <li class="header__navbar-item">
-                                <a href="" class="header__navbar-link">Trang chủ</a>
+                                <a href="index.php" class="header__navbar-link">Trang chủ</a>
                             </li>
                             <li class="header__navbar-item">
                                 <a href="" class="header__navbar-link">Gia sư</a>
