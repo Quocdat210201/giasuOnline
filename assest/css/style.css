@@ -15,7 +15,7 @@
     margin-top: 10px;
     margin-bottom: 2px;
     background: var(--primary-color);
-    width: 16%;
+    width: 17%;
 }
 
 .member__search{
@@ -490,7 +490,6 @@ th, tr, td{
 
 /*danh sach lop*/
 .member__wrap-content{
-    display: none;
     flex-wrap: wrap;
     box-sizing: border-box;
     margin-left: -4px;
