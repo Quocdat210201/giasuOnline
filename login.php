@@ -75,7 +75,19 @@ session_start();
                         $_SESSION['name'] = $name;
                         header('Location: admin/index.php');
 
-                    } else {
+                    } elseif($maQuyen == 2){
+                        $sql = "SELECT tutorID, fullName FROM tutor WHERE emailAddress = '$username'";
+                        $query = mysqli_query($conn, $sql);
+                        while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
+                            if($data != false) {
+                                $id = $data["tutorID"];
+                                $name = $data["fullName"];
+                            }
+                        }
+                        $_SESSION['id'] = $id;
+                        $_SESSION['name'] = $name;
+                        header('Location: index.php');
+                    }else{
                         $sql = "SELECT parentsID, fullName FROM parents WHERE emailAddress = '$username'";
                         $query = mysqli_query($conn, $sql);
                         while ($data = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
@@ -88,9 +100,10 @@ session_start();
                         $_SESSION['name'] = $name;
                         header('Location: index.php');
                     }
+                }
 			}
 		}
-	}
+	
 ?>
     <section>
         <div class="login-box">

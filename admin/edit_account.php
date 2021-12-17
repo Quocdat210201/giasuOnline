@@ -44,8 +44,7 @@
 		    if (isset($_SESSION['id'])) {
 		    	//thực hiện việc lấy thông tin user
                 $conn = mysqli_connect('localhost','root','','giasuonline');
-                if(mysqli_connect_errno()!==0)
-                {
+                if(mysqli_connect_errno()!==0){
                     die("Error: Could not connect to the database. An error ".mysqli_connect_error()." ocurred.");
                 }else {
                     mysqli_set_charset($conn,'utf8');

@@ -515,3 +515,67 @@ th, tr, td{
 a {
     text-decoration: none;
 }
+
+
+/* detail CSS */
+.detail-tutor{
+    margin-top: 40px;
+}
+
+.detail-tutor-avatar img{
+    width: 100%;
+}
+
+.detail-tutor__evaluate{
+    margin-top: 14px;
+    text-align: center;
+}
+
+.detail-tutor__evaluate-icon{
+    font-size: 1.9rem;
+    margin: 0 3px;
+    color: #767575;
+}
+
+.color-yellow {
+    color: #ff912c;
+}
+
+.detail-tutor-body-item{
+    display: flex;
+    align-items: center;
+}
+
+.detail-tutor-body-text{
+    width: 70px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--text-color);
+}
+
+.active{
+    margin: 0 8px;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--text-color);
+}
+
+.active-email{
+    color: blue !important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.detail-tutor-content{
+    font-size: 1.5rem;
+    line-height: 2rem;
+    color: var(--text-color);
+    margin: 5px;
+}
+
+.detail-tutor-btn {
+    margin-top: 15px;
+    width: 10%;
+    margin-left: 76px;
+}

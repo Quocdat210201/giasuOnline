@@ -92,154 +92,37 @@
                 </div>
 
                 <div class="member__wrap row">
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu1.jpg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Nguyễn Thị Quyên</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Rèn chữ - Mẫu giáo, Báo bài - Cấp 1, Toán - Cấp 1, Tiếng việt - Cấp 1, Báo bài - Cấp 2, Ngữ văn - Cấp 2, Báo bài - Cấp 3, Ngữ văn - Cấp 3, Ngữ văn - Luyện thi đại học
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Sinh viên năm 4. Trường Đại học Khoa Học Xã Hội và Nhân Văn.
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
 
-                        </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu2.jpg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Lê Thị Minh Trang</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Toán - Cấp 1, Tiếng anh - Cấp 1, Toán - Cấp 2, Toán - Cấp 3.
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Mình hỗ trợ các bạn HS từ mất căn bản đến có thể học tốt môn Toán, luyện thi vào 10 và THPTQG (chương trình Bộ GD và Toán Tiếng Anh).
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu33.jpg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Nguyễn Thị LAn Trinh</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Tiếng anh - Cấp 1, Tiếng Anh - Cấp 2, Tiếng anh - Cấp 3.
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Em hiện tại đang là sinh viên năm 2 chuyên ngành ngôn ngữ anh trường ĐH Tôn Đức Thắng.
-                                    Đã có hai năm kinh nghiệm làm gia sư, và trợ giảng ở một số trung tâm lớn.
-                                    Là người kĩ tính, kiên nhẫn, và có trách nhiệm cao trong công việc, sẵn sàng lắng nghe học viên của mình.
-                                    Yêu trẻ em.
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
+                <?php
+                    require_once("includes/connection.php");
+                    $sql = "SELECT * FROM tutor";
+                    $query = mysqli_query($conn,$sql);
+                    while ($data = mysqli_fetch_array($query)) { 
+                        $id=$data['tutorID'];
+                        ?>
+                        <div class="member__wrap-item col l-3">
+                            <div class="member__wrap-item-body">
+                                <div class="member__wrap-item-img">
+                                    <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
+                                </div>
+                                <div class="member__wrap-item-info">
+                                    <h4 class="member__wrap-item-info-name"><?php echo $data['fullName'] ?></h4>
+                                    <span class="member__wrap-item-info-subjects">
+                                        <?php echo $data['content'] ?>
+                                    </span>
+                                    <p class="member__wrap-item-info-introduce">
+                                        <?php echo $data['generalIntroduction'] ?>
+                                    </p>
+                                    <button class="member__wrap-item-info-btn btn">
+                                        <a href="./detail_search.php?id=<?php echo $id ?>" class="btn-link">Xem chi tiết</a>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu4.jpeg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Thái Quỳnh Ngân</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Toán - Cấp 1, Toán - Cấp 2, Lý Cấp 2, Tiếng Anh.
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Sinh viên năm 2, chuyên ngành kiểm toán trường ĐH Kinh tế Luật ĐHQG TPHCM Em muốn đăng kí dạy gia sư
-                                    và đã có 1 năm kinh nghiệm dạy các bé từ cấp 2 trở xuống , hiện tại em đang dạy 2 bé lớp 7 môn
-                                    Toán và Lý , lớp nhận trong mùa dịch nên lương hơi thấp và em muốn đăng kí tìm lớp khác để dạy.
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu1.jpg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Nguyễn Thị Quyên</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Rèn chữ - Mẫu giáo, Báo bài - Cấp 1, Toán - Cấp 1, Tiếng việt - Cấp 1, Báo bài - Cấp 2, Ngữ văn - Cấp 2, Báo bài - Cấp 3, Ngữ văn - Cấp 3, Ngữ văn - Luyện thi đại học
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Sinh viên năm 4. Trường Đại học Khoa Học Xã Hội và Nhân Văn.
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu2.jpg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Lê Thị Minh Trang</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Toán - Cấp 1, Tiếng anh - Cấp 1, Toán - Cấp 2, Toán - Cấp 3.
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Mình hỗ trợ các bạn HS từ mất căn bản đến có thể học tốt môn Toán, luyện thi vào 10 và THPTQG (chương trình Bộ GD và Toán Tiếng Anh).
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu33.jpg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Nguyễn Thị LAn Trinh</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Tiếng anh - Cấp 1, Tiếng Anh - Cấp 2, Tiếng anh - Cấp 3.
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Em hiện tại đang là sinh viên năm 2 chuyên ngành ngôn ngữ anh trường ĐH Tôn Đức Thắng.
-                                    Đã có hai năm kinh nghiệm làm gia sư, và trợ giảng ở một số trung tâm lớn.
-                                    Là người kĩ tính, kiên nhẫn, và có trách nhiệm cao trong công việc, sẵn sàng lắng nghe học viên của mình.
-                                    Yêu trẻ em.
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="member__wrap-item col l-3">
-                        <div class="member__wrap-item-body">
-                            <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu4.jpeg" alt="">
-                            </div>
-                            <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Thái Quỳnh Ngân</h4>
-                                <span class="member__wrap-item-info-subjects">
-                                    Toán - Cấp 1, Toán - Cấp 2, Lý Cấp 2, Tiếng Anh.
-                                </span>
-                                <p class="member__wrap-item-info-introduce">
-                                    Sinh viên năm 2, chuyên ngành kiểm toán trường ĐH Kinh tế Luật ĐHQG TPHCM Em muốn đăng kí dạy gia sư
-                                    và đã có 1 năm kinh nghiệm dạy các bé từ cấp 2 trở xuống , hiện tại em đang dạy 2 bé lớp 7 môn
-                                    Toán và Lý , lớp nhận trong mùa dịch nên lương hơi thấp và em muốn đăng kí tìm lớp khác để dạy.
-                                </p>
-                                <button class="member__wrap-item-info-btn btn">Mời dạy</button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php }
+                      
+                    ?>
+                    
                 </div>
             </div>
 

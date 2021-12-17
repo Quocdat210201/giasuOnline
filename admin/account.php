@@ -46,7 +46,7 @@
 
 
                 <?php
-                    $stt = 1 ;
+                    $stt = 1 ;   
                     $sql = "SELECT * FROM tutor";
                     // thực thi câu $sql với biến conn lấy từ file connection.php
                     $query = mysqli_query($conn,$sql);

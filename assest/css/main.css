@@ -351,6 +351,10 @@
     line-height: 2rem;
 }
 
+.btn-link{
+    color:  #fff ;
+}
+
 .regiter__wrap{
     margin-top: 100px;
 }
