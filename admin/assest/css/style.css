@@ -40,14 +40,15 @@
     width: 78%;
 }
 
-.member__search-logo{
+.member__search-logo {
     position: absolute;
     display: block;
-    right: 67.3%;
-    top: 24.4%;
+    right: 66%;
+    top: 22.3%;
     font-size: 1.4rem;
     color: var(--text-color);
 }
+
 
 
 .member__search-filter{
@@ -188,10 +189,6 @@ section .login-box .form h2{
 .input-form-active p{
     display: block;
     margin: 0;
-}
-
-.input-form-text{
-    width: 88% !important;
 }
 
 .input-form-back{

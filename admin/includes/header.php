@@ -75,7 +75,7 @@
                                         <a href="" class="header__subnav-link">Tuyển dụng gia sư</a>
                                     </li>
                                     <li class="header__subnav-item">
-                                        <a href="" class="header__subnav-link">Danh sách lớp cần gia sư</a>
+                                        <a href="../listclass.php" class="header__subnav-link">Danh sách lớp cần gia sư</a>
                                     </li>
                                 </ul>
                             </li>
@@ -90,7 +90,7 @@
                                     </li>
                                     <li class="header__subnav-item">
 
-                                        <a href="./search.php" class="header__subnav-link">Danh sách gia sư</a>
+                                        <a href="../search.php" class="header__subnav-link">Danh sách gia sư</a>
 
                                     </li>
                                 </ul>
