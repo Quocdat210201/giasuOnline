@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng ký</title>
+    <title>Đăng Ký Tài Khoản</title>
     <!--Reset css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
                 integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
@@ -21,9 +21,6 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
 </head>
 <body>
-    <!-- HEADER -->
-    <?php include( 'includes/header.php');?>
-
     <section>
         <div class="login-box">
             <div class="form">
@@ -39,17 +36,24 @@ session_start();
                             <label for="giasu">Gia Sư</label>
                         </div>
                     </div>
+
                     <div class="input-form">
                         <span>
-                            <label for="giasu">Tài khoản</label>
+                            <label for="giasu">Họ tên:</label>
+                        </span>
+                        <input class="input_text input-form-text" type="text" name="name" value="" required/>
+                    </div>
+                    <div class="input-form">
+                        <span>
+                            <label for="giasu">Tài khoản:</label>
                         </span>
                         <input class="input_text input-form-text" type="email" name="email" value="" required/>
                     </div>
                     <div class="input-form">
                         <span>
-                            <label for="giasu">Mật khẩu</label>
+                            <label for="giasu">Mật khẩu:</label>
                         </span>
-                        <input class="input_text input-form-text" type="text" name="password" value="" required/>
+                        <input class="input_text input-form-text" type="password" name="password" value="" required/>
                     </div>
                     <div class="input-form">
                         <input class="btn_register" type="submit" name="dangky" value="Đăng Ký"/>
@@ -63,17 +67,15 @@ session_start();
         </div>
     </section>
     <?php
-        header('Content-Type: text/html; charset=utf-8');
-        require_once("connection.php");
+        require_once("includes/connection.php");
         mysqli_set_charset($conn, "utf8");
 
-
         if (isset($_POST['dangky'])){
-            $password = trim($_POST['password']);
+            $name = trim($_POST['name']);
             $email = trim($_POST['email']);
+            $password = trim($_POST['password']);
 
-            if(isset($_POST['people']))
-            {
+            if(isset($_POST['people'])) {
                 $type = trim($_POST['people']);
             }else{
                 $type = false;
@@ -87,6 +89,9 @@ session_start();
                 }
             }
 
+            if (empty($name)) {
+                array_push($errors, "Tên người dùng không được để trống");
+            }
             if (empty($email)) {
                 array_push($errors, "Email không được để trống");
             }
@@ -104,7 +109,11 @@ session_start();
                 die();
             } else {
                 $sql = "INSERT INTO account (emailAddress, password, permissionID) VALUES ('$email','$password','$permission')";
-                echo '<script language="javascript">alert(" Đã Đăng ký thành công!"); window.location="register.php";</script>';
+                mysqli_query($conn, $sql);
+                $sql = "INSERT INTO parents (fullName, emailAddress) VALUES ('$name', '$email')";
+                mysqli_query($conn, $sql);
+                $sql = "INSERT INTO account (emailAddress, password, permissionID) VALUES ('$email','$password','$permission')";
+                echo '<script language="javascript">alert(" Đã Đăng ký thành công!"); window.location="login.php";</script>';
                 if (mysqli_query($conn, $sql)) {
                     echo "Email đăng nhập: " . $_POST['email'] . "<br/>";
                     echo "Mật khẩu: " . $_POST['password'] . "<br/>";
@@ -116,7 +125,5 @@ session_start();
         }
 
     ?>
-    <!-- FOOTER -->
-    <?php include( 'includes/footer.php');?>
 </body>
 </html>

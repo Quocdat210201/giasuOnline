@@ -88,8 +88,8 @@
                 </div>
                 <div class="member__wrap member__wrap-content">
                     <?php
-                        $connect = mysqli_connect('127.0.0.1','root','','giasuonline');
-                        if(mysqli_connect_errno()!==0)
+                        $connect = mysqli_connect('localhost','root','','giasuonline');
+                        if(mysqli_connect_errno() !== 0)
                         {
                             die("Error: Could not connect to the database. An error ".mysqli_connect_error()." ocurred.");
                         }
