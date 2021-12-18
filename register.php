@@ -22,7 +22,7 @@ session_start();
 </head>
 <body>
     <!-- HEADER -->
-    <?php include( 'includes/header.php');?>
+    
 
     <section>
         <div class="login-box">
@@ -31,12 +31,12 @@ session_start();
                 <form method="post" action="register.php">
                     <div class="register-radio">
                         <div class="input-form register-radio-form">
-                            <input type="radio" name="people" value="phuhuynh">
-                            <label for="phuhuynh">Phụ Huynh</label>
+                            <input class="register-radio-input" type="radio" name="people" value="phuhuynh">
+                            <label class="register-radio-lable" for="phuhuynh">Phụ Huynh</label>
                         </div>
                         <div class="input-form register-radio-form">
-                            <input type="radio" name="people" value="giasu">
-                            <label for="giasu">Gia Sư</label>
+                            <input class="register-radio-input" type="radio" name="people" value="giasu">
+                            <label class="register-radio-lable" for="giasu">Gia Sư</label>
                         </div>
                     </div>
                     <div class="input-form">
@@ -55,8 +55,8 @@ session_start();
                         <input class="btn_register" type="submit" name="dangky" value="Đăng Ký"/>
                     </div>
                     <div class="input-form input-form-active">
-                        <p><a href="./index.php">Trang chủ</a></p>
-                        <p><a href="./login.php">Đăng nhập</a></p>
+                        <p class="input-form-link"><a href="./index.php">Trang chủ</a></p>
+                        <p class="input-form-link"><a href="./login.php">Đăng nhập</a></p>
                     </div>
                 </form>
             </div>

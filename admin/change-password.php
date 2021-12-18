@@ -39,7 +39,7 @@ if($num>0){
 ?>
 <p style= "color:red;"><?php echo $_SESSION['msg1'];?><?php $_SESSION['msg1'] = ""; ?></p>
 
-<?php include( 'includes/header.php');?>
+
 <section>
         <div class="login-box">
             <div class="form">

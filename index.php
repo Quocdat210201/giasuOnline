@@ -220,10 +220,10 @@
                     <div class="member__wrap-item col l-3">
                         <div class="member__wrap-item-body">
                             <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu33.jpg" alt="">
+                                <img src="./assest/img/giasu3.jpg" alt="">
                             </div>
                             <div class="member__wrap-item-info">
-                                <h4 class="member__wrap-item-info-name">Nguyễn Thị LAn Trinh</h4>
+                                <h4 class="member__wrap-item-info-name">Nguyễn Thị Lan Trinh</h4>
                                 <span class="member__wrap-item-info-subjects">
                                     Tiếng anh - Cấp 1, Tiếng Anh - Cấp 2, Tiếng anh - Cấp 3.
                                 </span>
@@ -240,7 +240,7 @@
                     <div class="member__wrap-item col l-3">
                         <div class="member__wrap-item-body">
                             <div class="member__wrap-item-img">
-                                <img src="./assest/img/giasu4.jpeg" alt="">
+                                <img src="./assest/img/giasu5.jpg" alt="">
                             </div>
                             <div class="member__wrap-item-info">
                                 <h4 class="member__wrap-item-info-name">Thái Quỳnh Ngân</h4>

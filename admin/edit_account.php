@@ -80,7 +80,7 @@
             }
 		    ?>
 
-            <form action="edit_account.php" method="POST">
+            <form class="edit-account-form" action="edit_account.php" method="POST">
                 <table class="account-table">
                     <div class="input-form">
                         <input class="input-form-input" type="hidden" name="adminID" value="<?php echo $id; ?> ">

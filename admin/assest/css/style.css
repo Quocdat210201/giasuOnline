@@ -166,10 +166,11 @@ section .login-box .form{
     width: 80%;
 }
 
-section .login-box .form h2{
+section .login-box .form h2 {
     color: #607d8b;
-    font-weight: 500;
-    font-size: 1.5em;
+    font-weight: 600;
+    font-size: 2.6em;
+    line-height: 3.3rem;
     text-align: center;
     width: 100%;
     text-transform: uppercase;
@@ -177,7 +178,6 @@ section .login-box .form h2{
     border-bottom: 4px solid #5bb0ff;
     display: inline-block;
     letter-spacing: 1px;
-
 }
 
 .input-form-active{
@@ -196,9 +196,10 @@ section .login-box .form h2{
     justify-content: space-between;
 }
 
-.input-form-link{
-    color :#5bb0ff; 
-    font-size: 1rem;
+.input-form-link {
+    color: #5bb0ff;
+    font-size: 1.7rem;
+    text-decoration: underline;
 }
 
 section .login-box .form .input-form{
@@ -236,6 +237,15 @@ section .login-box .form .input-form input{
 .register-radio{
     display: flex;
     justify-content: space-around;
+}
+
+input.register-radio-input{
+    width: 26% !important;
+}
+
+label.register-radio-lable {
+    width: 160px;
+    font-size: 1.6rem;
 }
 
 .register-radio-form{
@@ -437,12 +447,17 @@ section .login-box .form .icon-dang-nhap li i{
     font-size: 2.1rem;
     line-height: 3rem;
     color: var(--text-color);
+    text-align: center;
 }
 
 .account-table{
     border-collapse: collapse !important;
     width: 100%;
     text-align: left;
+}
+
+.edit-account-form{
+    margin-left: 32%;
 }
 
 th, tr, td{
