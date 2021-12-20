@@ -25,6 +25,7 @@
 .member__search-wrap{
     margin-bottom: 10px;
     width: 40%;
+    position: relative;
 }
 
 .member__search-input{
@@ -39,16 +40,6 @@
     position: relative;
     width: 78%;
 }
-
-.member__search-logo {
-    position: absolute;
-    display: block;
-    right: 66%;
-    top: 22.3%;
-    font-size: 1.4rem;
-    color: var(--text-color);
-}
-
 
 .member__search-filter{
     display: flex;
@@ -593,4 +584,69 @@ a {
     margin-top: 15px;
     width: 10%;
     margin-left: 76px;
+}
+
+
+/* CSS cho search box */
+.search-box{
+    display: inline-block;
+    margin-right: 2rem;
+    border: none;
+    outline: none;
+    border-radius: 100rem;  
+    line-height: 3rem;
+    padding: 0 34px 0 0;
+    font-size: 1.4rem;
+    position: relative;
+    width: 78%;
+}
+
+.member__search-logo {
+    position: absolute;
+    display: block;
+    right: 7%;
+    top: 3%;
+    width: 27%;
+    line-height: 1.6rem;
+    font-size: 1.4rem;
+    border-top-left-radius: unset;
+    border-bottom-left-radius: unset;
+}
+
+.search-box-input{
+    border: none;
+    outline: none;
+    background: #dfdfdf;
+    width: 100%;
+    padding: 9px 140px 9px 16px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    color: #000;
+    border-radius: 100rem;
+}
+
+.result{
+    position: absolute;
+    z-index: 999;
+    top: 100%;
+    width: 92%;
+    box-shadow: 0 3px 5px #888;
+    left: 0;
+    background-color: #fff;
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+/* CSS cho kết quả */
+.result p{
+    margin: 0;
+    padding: 7px 10px;
+    border: 1px solid #CCCCCC;
+    border-top: none;
+    cursor: pointer;
+}
+
+
+.result p:hover{
+    background: #f2f2f2;
 }

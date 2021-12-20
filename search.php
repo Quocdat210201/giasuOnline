@@ -19,6 +19,30 @@
     <link rel="stylesheet" href="./assest/css/style.css">
     <link rel="stylesheet" href="./assest/fonts/fontawesome-free-5.15.4-web/css/all.min.css">   <!--Icon-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Lấy giá trị đầu vào khi có thay đổi */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("ajax-search.php", {term: inputVal}).done(function(data){
+                // Hiển thị dữ liệu trả về trong trình duyệt
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+    // Thiết lập giá trị đầu vào khi click vào result
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
 
 </head>
 <body>
@@ -31,12 +55,13 @@
             <!-- Member -->
             <div class="member member-search">
                 <div class="member__search">
-                    <div class="member__search-wrap">
-                        <input type="text" class="member__search-input" placeholder="Tìm kiếm">
-                        <a href="" class="member__search-logo">
-                            <i class="member__search-logo-icon fas fa-search"></i>
-                        </a>
-                    </div>
+
+                    <form class="search-box" acction="search.php">
+                        <input class = "search-box-input" type="text" autocomplete="off" placeholder="Tìm kiếm" name="search" />
+                        <input class="member__search-logo btn" type="submit" value ="Tìm kiếm" name="ok"/>
+                        <div class="result"></div>
+                    </form>
+                     
                     <div class="member__search-filter">
                         <div class="member__search-select">
                             <select name="edit-place" id="" class="from-select">
@@ -95,38 +120,86 @@
 
                 <?php
                     require_once("includes/connection.php");
-                    $sql = "SELECT * FROM tutor";
-                    $query = mysqli_query($conn,$sql);
-                    while ($data = mysqli_fetch_array($query)) { 
-                        $id=$data['tutorID'];
-                        ?>
-                        <div class="member__wrap-item col l-3">
-                            <div class="member__wrap-item-body">
-                                <div class="member__wrap-item-img">
-                                    <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
+                    if (isset($_REQUEST['ok'])) {
+                        $search = addslashes($_GET['search']);
+                        // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
+                        if (empty($search)) {?>
+                            <script> alert("Chư nhập dữ liệu"); </script>
+                        <?php    
+                        } 
+                        else{
+                            $query_result = "SELECT * from tutor where fullName like '%$search%'";
+
+                            $sql_result = mysqli_query($conn,$query_result);
+            
+                            // Nếu có kết quả thì hiển thị, ngược lại thì thông báo không tìm thấy kết quả
+                            if ( $search != "") 
+                            {
+                                
+                                // Vòng lặp while & mysql_fetch_assoc dùng để lấy toàn bộ dữ liệu có trong table và trả về dữ liệu ở dạng array.
+                                while ($row = mysqli_fetch_assoc($sql_result)) {?>
+                                <div class="member__wrap-item col l-3">
+                                    <div class="member__wrap-item-body">
+                                        <div class="member__wrap-item-img">
+                                            <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $row['avatar'] ?>" alt="">
+                                        </div>
+                                        <div class="member__wrap-item-info">
+                                            <h4 class="member__wrap-item-info-name"><?php echo $row['fullName'] ?></h4>
+                                            <span class="member__wrap-item-info-subjects">
+                                                <?php echo $row['content'] ?>
+                                            </span>
+                                            <p class="member__wrap-item-info-introduce">
+                                                <?php echo $row['generalIntroduction'] ?>
+                                            </p>
+                                            <button class="member__wrap-item-info-btn btn">
+                                                <a href="./detail_search.php?id=<?php echo $id ?>" class="btn-link">Xem chi tiết</a>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="member__wrap-item-info">
-                                    <h4 class="member__wrap-item-info-name"><?php echo $data['fullName'] ?></h4>
-                                    <span class="member__wrap-item-info-subjects">
-                                        <?php echo $data['content'] ?>
-                                    </span>
-                                    <p class="member__wrap-item-info-introduce">
-                                        <?php echo $data['generalIntroduction'] ?>
-                                    </p>
-                                    <button class="member__wrap-item-info-btn btn">
-                                        <a href="./detail_search.php?id=<?php echo $id ?>" class="btn-link">Xem chi tiết</a>
-                                    </button>
+                                <?php }
+                            } 
+                            
+                        }
+                        
+                    } 
+                    else {
+                        $sql = "SELECT * FROM tutor";
+                        $query = mysqli_query($conn,$sql);
+                        while ($data = mysqli_fetch_array($query)) { 
+                            $id=$data['tutorID'];
+                            ?>
+                            <div class="member__wrap-item col l-3">
+                                <div class="member__wrap-item-body">
+                                    <div class="member__wrap-item-img">
+                                        <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
+                                    </div>
+                                    <div class="member__wrap-item-info">
+                                        <h4 class="member__wrap-item-info-name"><?php echo $data['fullName'] ?></h4>
+                                        <span class="member__wrap-item-info-subjects">
+                                            <?php echo $data['content'] ?>
+                                        </span>
+                                        <p class="member__wrap-item-info-introduce">
+                                            <?php echo $data['generalIntroduction'] ?>
+                                        </p>
+                                        <button class="member__wrap-item-info-btn btn">
+                                            <a href="./detail_search.php?id=<?php echo $id ?>" class="btn-link">Xem chi tiết</a>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php }
-                      
+                            <?php
+                        }
+                    }
                     ?>
                     
                 </div>
             </div>
 
-            <div class="pagination">
+
+
+
+            <!-- <div class="pagination">
                 <ul class="pagination__product">
                     <li class="pagination__product-item">
                         <a href="" class="pagination__product-link">
@@ -160,7 +233,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div> -->
         </div>
 
 
