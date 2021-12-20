@@ -192,48 +192,8 @@
                         }
                     }
                     ?>
-                    
                 </div>
             </div>
-
-
-
-
-            <!-- <div class="pagination">
-                <ul class="pagination__product">
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">
-                            <i class="pagination__product-icon fas fa-chevron-left"></i>
-                        </a>
-                    </li>
-                    <li class="pagination__product-item pagination__product-item-active">
-                        <a href="" class="pagination__product-link">1</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">2</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">3</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">4</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">5</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">...</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">14</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">
-                            <i class="pagination__product-icon fas fa-chevron-right"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div> -->
         </div>
 
 

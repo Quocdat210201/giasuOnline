@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include "include/connection.php";
 ?>
 
 <!DOCTYPE html>
@@ -40,6 +41,7 @@
             if (isset($_SESSION['id'])) {
 		    	//thực hiện việc lấy thông tin user
                 $conn = mysqli_connect('localhost','root','','giasuonline');
+                $userid = $_SESSION['id'];
                 if(mysqli_connect_errno()!==0)
                 {
                     die("Error: Could not connect to the database. An error ".mysqli_connect_error()." ocurred.");
@@ -48,18 +50,11 @@
                     $id = $_GET['id'];
                     $sql = "SELECT * FROM tutor WHERE tutorID = '$id'";
                     $query = mysqli_query($conn,$sql);
-                    $data = mysqli_fetch_assoc($query);?>
-                    
+                    $data = mysqli_fetch_assoc($query);
+                ?>
                     <div class="detail-tutor  grid row">
                         <div class="detail-tutor-avatar col l-3">
                             <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
-                            <div class="detail-tutor__evaluate">
-                                <i class="detail-tutor__evaluate-icon color-yellow fas fa-star"></i>
-                                <i class="detail-tutor__evaluate-icon color-yellow fas fa-star"></i>
-                                <i class="detail-tutor__evaluate-icon color-yellow fas fa-star"></i>
-                                <i class="detail-tutor__evaluate-icon color-yellow fas fa-star"></i>
-                                <i class="detail-tutor__evaluate-icon far fa-star"></i>
-                            </div>
                         </div>
                         <div class="detail-tutor-body col l-8">
                             <div class="detail-tutor-body-item">
@@ -110,5 +105,17 @@
 
         <!-- FOOTER -->
         <?php include( 'includes/footer.php');?>
+
+<style>
+    .like,.unlike{
+        border: 0;
+        background: none;
+        letter-spacing: 1px;
+        color: lightseagreen;
+    }
+    .like,.unlike:hover{
+        cursor: pointer;
+    }
+</style>
 </body>
-</html>
+</html> 
