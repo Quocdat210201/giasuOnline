@@ -35,7 +35,7 @@
             resultDropdown.empty();
         }
     });
-    
+
     // Thiết lập giá trị đầu vào khi click vào result
     $(document).on("click", ".result p", function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
@@ -61,7 +61,7 @@
                         <input class="member__search-logo btn" type="submit" value ="Tìm kiếm" name="ok"/>
                         <div class="result"></div>
                     </form>
-                     
+
                     <div class="member__search-filter">
                         <div class="member__search-select">
                             <select name="edit-place" id="" class="from-select">
@@ -125,17 +125,17 @@
                         // Nếu $search rỗng thì báo lỗi, tức là người dùng chưa nhập liệu mà đã nhấn submit.
                         if (empty($search)) {?>
                             <script> alert("Chư nhập dữ liệu"); </script>
-                        <?php    
-                        } 
+                        <?php
+                        }
                         else{
                             $query_result = "SELECT * from tutor where fullName like '%$search%'";
 
                             $sql_result = mysqli_query($conn,$query_result);
-            
+
                             // Nếu có kết quả thì hiển thị, ngược lại thì thông báo không tìm thấy kết quả
-                            if ( $search != "") 
+                            if ( $search != "")
                             {
-                                
+
                                 // Vòng lặp while & mysql_fetch_assoc dùng để lấy toàn bộ dữ liệu có trong table và trả về dữ liệu ở dạng array.
                                 while ($row = mysqli_fetch_assoc($sql_result)) {?>
                                 <div class="member__wrap-item col l-3">
@@ -158,21 +158,21 @@
                                     </div>
                                 </div>
                                 <?php }
-                            } 
-                            
+                            }
+
                         }
-                        
-                    } 
+
+                    }
                     else {
                         $sql = "SELECT * FROM tutor";
                         $query = mysqli_query($conn,$sql);
-                        while ($data = mysqli_fetch_array($query)) { 
+                        while ($data = mysqli_fetch_array($query)) {
                             $id=$data['tutorID'];
                             ?>
                             <div class="member__wrap-item col l-3">
                                 <div class="member__wrap-item-body">
                                     <div class="member__wrap-item-img">
-                                        <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
+                                        <img src="http://localhost/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
                                     </div>
                                     <div class="member__wrap-item-info">
                                         <h4 class="member__wrap-item-info-name"><?php echo $data['fullName'] ?></h4>
