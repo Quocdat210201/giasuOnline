@@ -17,7 +17,20 @@
     background: var(--primary-color);
     width: 17%;
 }
+.member__wrap-header h5{
+    font-size: 2rem;
+    line-height: 2rem;
+    padding: 12px 12px;
+    color: var(--white-color);
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    background: var(--primary-color);
+    width: 15%;
+    border-radius: 20px;
 
+}
+    
 .member__search{
     display: flex;
 }
@@ -649,4 +662,24 @@ a {
 
 .result p:hover{
     background: #f2f2f2;
+}
+.form_register_tutor_left input{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    border: none;
+    outline: black;
+    background-color: var(--white-color);
+    border-radius: 100rem;
+    margin: 10px 0;
+    padding: 10px 10px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+}
+.member__search-filter1{
+    display: flex;
+    justify-content:left;
+}
+.member_register_tutor{
+    margin-left: 100px;
 }

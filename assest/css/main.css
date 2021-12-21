@@ -504,6 +504,20 @@
     cursor: pointer;
     color: #5e5050;
 }
+.slider1{
+    background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.50)), transparent url(../img/sliderr.png) center center/cover no-repeat scroll;
+    padding-top: 100px;
+    margin-top: 100px;
+}
+.input-btn-tutor{
+    background-color: #44ddbf;
+    color: var(--text-color);
+    width: 10%;
+    padding: 14px 0;
+    margin-top: 16px;
+    margin-bottom: 28px;
+    border-radius: 20px;
+}
 
 
 
