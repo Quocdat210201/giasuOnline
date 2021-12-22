@@ -26,9 +26,14 @@
     <div class="app ">
         <!-- HEADER -->
         <?php include( 'includes/header.php');?>
-
         <?php
             require_once("includes/connection.php");
+        ?>
+        <?php
+            if (isset($_GET["id_delete"])) {
+                $sql = "DELETE FROM tutor WHERE tutorID = ".$_GET["id_delete"]; 
+                mysqli_query($conn,$sql); 
+            }
         ?>
         <div class="account grid wide mt-125">
             <h3 class="account-header" >Danh sách thành viên đã đăng ký</h3>
@@ -59,8 +64,7 @@
                         <td><?php echo $data["phone"]; ?></td>
                         <td><?php echo $data["address"]; ?></td>
                         <td>
-                            <a href="edit_account.php?id=<?php echo $data["tutorID"]; ?>">Sửa</a>
-                            <a href="delete_account.php?id=<?php echo $data["tutorID"]; ?>">Xóa</a>
+                            <a href="account.php?id_delete=<?php echo $data["tutorID"]; ?>">Xóa
                         </td>
                     </tr>
                     <?php }  ?>

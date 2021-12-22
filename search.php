@@ -172,7 +172,7 @@
                             <div class="member__wrap-item col l-3">
                                 <div class="member__wrap-item-body">
                                     <div class="member__wrap-item-img">
-                                        <img src="http://localhost/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
+                                        <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
                                     </div>
                                     <div class="member__wrap-item-info">
                                         <h4 class="member__wrap-item-info-name"><?php echo $data['fullName'] ?></h4>

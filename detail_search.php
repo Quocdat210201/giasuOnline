@@ -110,7 +110,7 @@
                 ?>
                     <div class="detail-tutor  grid row">
                         <div class="detail-tutor-avatar col l-3">
-                            <img src="http://localhost/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
+                            <img src="http://localhost:8088/giasuOnline/assest/img/<?php echo $data['avatar'] ?>" alt="">
                             <!-- start rating -->
                             <div class="detail-tutor__evaluate">
                                 <select class='rating' id='rating_<?php echo $id; ?>' data-id='rating_<?php echo $id; ?>'>
