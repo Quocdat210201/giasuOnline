@@ -21,7 +21,7 @@ session_start();
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">   <!--font chữ-->
 </head>
 <body>
-<?php include_once('./include/connection.php');
+<?php include_once('./includes/connection.php');
 if(isset($_POST['doimatkhau'])){
     $user = $_POST['emailAddress'];
     $oldpass = $_POST['oldpassword'];
