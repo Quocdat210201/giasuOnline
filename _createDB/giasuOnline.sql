@@ -118,3 +118,40 @@ VALUES
 ('PR001', NULL, 'phuhuynh1@gmail.com', 'Phu Huynh A', 'Nam', '29/02/2001', '0987654321', 'Dia chi A'),
 ('PR002', NULL, 'phuhuynh2@gmail.com', 'Phu Huynh A', 'Nữ', '29/02/2001', '0987654321', 'Dia chi B'),
 ('PR003', NULL, 'phuhuynh3@gmail.com', 'Phu Huynh A', 'Nam', '29/02/2001', '0987654321', 'Dia chi A');
+
+
+CREATE TABLE `lophoc` (
+  `Id_lop` int(11) NOT NULL,
+  `TieuDe` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `monhoc` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `hinhthuc` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `hocphi` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `diachi` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `tutor` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `SoLuong` int(11) NOT NULL,
+  `ghichu` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
+  `ThoiGian` int(11) NOT NULL,
+  `PhiNhanLop` varchar(20) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+
+INSERT INTO `lophoc` (`Id_lop`, `TieuDe`, `monhoc`, `hinhthuc`, `hocphi`, `diachi`, `tutor`, `SoLuong`, `ghichu`, `ThoiGian`, `PhiNhanLop`) VALUES
+(1, 'Cần tìm gia sư dạy toán', 'Toán', 'online', '500.000', '17 Bạch Đằng', 'Nữ', 2, 'yêu cầu giáo viên nữ ,giỏi tiếng anh', 5, '1.500.000'),
+(2, 'Cần tìm gia sư dạy văn lớp 6', 'Văn lớp 6', 'online', '500.000', '17 Bạch long vĩ', 'Nam', 1, 'có kinh nghieem 2 năm dạy học', 10, '1.500.000'),
+(3, 'Cần tìm gia sư tiếng anh', 'Anh lớp 2', 'offline', '300.000', 'long biên, hà nội', 'Nữ', 10, 'có bằng B1', 20, '1.500.000'),
+(4, 'cần tìm gia sư phụ đạo toán lớp 10', 'Đại số lớp 10', 'online', '500.000', '17 Bạch trạch', 'Nam', 3, 'giỏi toán, sinh viên', 10, '500.000'),
+(5, 'cần tìm gia sư dạy toán', 'Toán', 'online', '750.000', '20 thanh sơn', 'Nam', 5, 'có kỹ năng giảng dạy cho trẻ em', 5, '200.000'),
+(6, 'Cần tìm gia sư dạy toán', 'Toán lớp 4', 'offline', '399.999', 'cầu giấy, hà nam', 'Nữ', 1, 'sinh viên hoặc cô giáo trẻ', 20, '2.000.000'),
+(7, 'Cần tìm giá sư dạy vẽ', 'mỹ thuật', 'offine', '500.000', '20 thanh Long', 'Nam', 1, 'Có kỹ năng dạy vẽ, đại học mỹ thuật', 10, '500.000'),
+(8, 'Cần tìm gia sư dạy Hóa', 'Hóa lớp 11', 'offline', '500.000', 'cầu giấy, Đà Nẵng', 'Nam', 2, 'Giỏi hóa, có kỹ nẵng giảng dạy', 25, '1.000.000'),
+(9, 'Cần tìm gia sư dạy lý', 'Lý 12', 'online', '500.000', '20 thanh Long', 'Nam', 2, 'có kinh nghiệm ôn thi đại học càng tốt', 10, '500.000'),
+(10, 'Cần Tìm gia sư dạy sinh', 'Sinh 11', 'offline', '500.000', 'cầu giấy, hà nam', 'Nam', 2, 'nghiêm  khắc và quản lí đc học sinh', 25, '1.000.000');
+
+
+ALTER TABLE `lophoc`
+  ADD PRIMARY KEY (`Id_lop`);
+
+
+ALTER TABLE `lophoc`
+  MODIFY `Id_lop` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;

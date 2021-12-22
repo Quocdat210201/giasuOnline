@@ -93,7 +93,7 @@
                 <div class="member__wrap member__wrap-content">
                     <?php
 
-                        $conn = mysqli_connect('127.0.0.1','root','hoangkha17','danhsachlop');
+                        $conn = mysqli_connect('localhost','root','','giasuonline');
                         mysqli_set_charset($conn,'UTF8');
                         $sql = "SELECT id_lop, monhoc, hinhthuc, hocphi, diachi, ghichu FROM lophoc LIMIT 10";
                         $result = mysqli_query($conn, $sql);

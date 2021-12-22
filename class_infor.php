@@ -10,7 +10,7 @@
 <body>
 
     <?php
-    $connect = mysqli_connect('127.0.0.1','root','hoangkha17','danhsachlop');
+    $connect = mysqli_connect('localhost','root','','giasuonline');
     mysqli_set_charset($connect,'UTF8');
     $id=$_GET['id'];
     $sql="SELECT * FROM lophoc WHERE id_lop='$id'";
