@@ -92,79 +92,90 @@
                 </div>
                 <div class="member__wrap member__wrap-content">
                     <?php
-                        $connect = mysqli_connect('127.0.0.1','root','','giasuonline');
-                        if(mysqli_connect_errno()!==0)
-                        {
-                            die("Error: Could not connect to the database. An error ".mysqli_connect_error()." ocurred.");
-                        }
-                        mysqli_set_charset($connect,'utf8');
-                        $sql = "SELECT monhoc, hinhthuc, hocphi, diachi, ghichu FROM lophoc LIMIT 6";
-                        $result = mysqli_query($connect, $sql);
-                            while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
-                            {
-                                if($row != false)
+
+                        $conn = mysqli_connect('127.0.0.1','root','hoangkha17','danhsachlop');
+                        mysqli_set_charset($conn,'UTF8');
+                        $sql = "SELECT id_lop, monhoc, hinhthuc, hocphi, diachi, ghichu FROM lophoc LIMIT 10";
+                        $result = mysqli_query($conn, $sql);
+                        echo '<div class="box-big1">';
+                            echo '<div class="box-left1">';
+                                while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC))
                                 {
-                                    $mon = $row['monhoc'];
-                                    $ht = $row['hinhthuc'];
-                                    $hp = $row['hocphi'];
-                                    $dc = $row['diachi'];
-                                    $gc = $row['ghichu'];
-                                    echo "<div class='row-request bla-common-shadow'>";
-                                        echo "<div class='one-row-class'>";
-                                            echo "<div class='row-content'>";
-                                                echo "<div class='col-md-8 col-sm-8'>";
-                                                    echo "<div class='row-request-2'>";
-                                                        echo "<span style='color: #4e4d4b;'>Lớp: </span>";
-                                                        echo "<span class='group-span'>";
-                                                            echo "<a href='' >";
-                                                                echo $mon;
-                                                                echo "&ensp;";
-                                                            echo "</a>";
-                                                        echo "</span>";
-                                                        echo "<span class='group-span'>";
-                                                            echo "<a href='' >";
-                                                                echo $ht;
-                                                            echo "</a>";
-                                                        echo"</span>";
-                                                    echo "</div>";
-                                                echo "</div>";
-                                                echo "<div class='col-md-2 col-sm-2'>";
-                                                    echo "<div class='row-request-3'>";
-                                                        echo "<span class='green-text' style='color:#eaa419;'>";
-                                                        echo "<span style='color: #4e4d4b;'>Học phí: </span><span style='font-size: 18px;font-weight:bold;color:#eaa419;'>";
-                                                            echo "<a href='' >";
-                                                                echo $hp;
-                                                            echo "</a>";
-                                                        echo "</span> vnđ/tháng</span>";
-                                                    echo "</div>";
-                                                echo "</div>";
-                                                echo "<div class='col-md-2 col-sm-2'>";
-                                                    echo "<div class='row-request-4'>";
-                                                        echo "<div class='action-group text-right show-when-hover'>";
-                                                            echo "<span style='color: #4e4d4b;'>Địa chỉ: </span><span>";
-                                                                echo "<a href='' >";
-                                                                    echo $dc;
-                                                                echo "</a>";
-                                                            echo "</span>";
+                                    if($row != false)
+                                    {
+                                        $chi_tiet="?thamso=detail&id=".$row['id_lop'];
+                                        $mon = $row['monhoc'];
+                                        $ht = $row['hinhthuc'];
+                                        $hp = $row['hocphi'];
+                                        $dc = $row['diachi'];
+                                        $gc = $row['ghichu'];
+                                            echo "<div class='row-request bla-common-shadow'>";
+                                                echo "<div class='one-row-class'>";
+                                                    echo "<div class='row'>";
+                                                        echo "<div class='col-md-8 col-sm-8'>";
+                                                            echo "<div class='row-request-2'>";
+                                                                echo "<span style='color: #4e4d4b;'>Lớp: </span>";
+                                                                echo "<span class='group-span'>";
+                                                                    echo "<a href='$chi_tiet' >";
+                                                                        echo $mon;
+                                                                        echo "&ensp;";
+                                                                    echo "</a>";
+                                                                echo "</span>";
+                                                                echo "<span class='group-span'>";
+                                                                    echo "<a href='$chi_tiet' >";
+                                                                        echo $ht;
+                                                                    echo "</a>";
+                                                                echo"</span>";
+                                                            echo "</div>";
                                                         echo "</div>";
-                                                        echo "<div class='action-group text-right show-when-hover'>";
-                                                            echo "<span style='color: #4e4d4b;'>Ghi chú: </span><span>";
-                                                                echo "<a href='' >";
-                                                                    echo $gc;
-                                                                echo "</a>";
-                                                            echo "</span>";
+                                                        echo "<div class='col-md-2 col-sm-2'>";
+                                                            echo "<div class='row-request-3'>";
+                                                                echo "<span class='green-text' style='color:#eaa419;'>";
+                                                                echo "<span style='color: #4e4d4b;'>Học phí: </span><span style='font-size: 18px;font-weight:bold;color:#eaa419;'>";
+                                                                    echo "<a href='$chi_tiet' >";
+                                                                        echo $hp;
+                                                                    echo "</a>";
+                                                                echo "</span> vnđ/Buổi</span>";
+                                                            echo "</div>";
+                                                        echo "</div>";
+                                                        echo "<div class='col-md-2 col-sm-2'>";
+                                                            echo "<div class='row-request-4'>";
+                                                                echo "<div class='action-group text-right show-when-hover'>";
+                                                                    echo "<span style='color: #4e4d4b;'>Địa chỉ: </span><span>";
+                                                                        echo "<a href='$chi_tiet' >";
+                                                                            echo $dc;
+                                                                        echo "</a>";
+                                                                    echo "</span>";
+                                                                echo "</div>";
+                                                                echo "<div class='action-group text-right show-when-hover'>";
+                                                                    echo "<span style='color: #4e4d4b;'>Ghi chú: </span><span>";
+                                                                        echo "<a href='$chi_tiet' >";
+                                                                            echo $gc;
+                                                                        echo "</a>";
+                                                                    echo "</span>";
+                                                                echo "</div>";
+                                                            echo "</div>";
                                                         echo "</div>";
                                                     echo "</div>";
                                                 echo "</div>";
                                             echo "</div>";
-                                        echo "</div>";
-                                    echo "</div>";
-                                    echo "<br>";
-                                }else
-                                {
-                                    echo "&nbsp;";
+                                            echo "<br>";
+                                        }else 
+                                        {
+                                            echo "&nbsp;";
+                                        }
                                 }
-                            }
+                                    echo '</div>';
+                                    echo '<div class="box-right1">';
+                                        if(isset($_GET['thamso'])){$tham_so=$_GET['thamso'];}else{$tham_so="";}
+                                        switch($tham_so)
+                                        {
+                                            case "detail":
+                                                include("class_infor.php");
+                                                break;
+                                        }				
+                                    echo '</div>';
+                        echo '</div>';
                     ?>
                 </div>
             <div class="pagination">

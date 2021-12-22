@@ -491,6 +491,31 @@ th, tr, td{
 }
 
 /*danh sach lop*/
+.box-big1{
+    display: flex;
+    width: 100%;
+    height: 395px;
+    position: relative;
+}
+.box-left1{
+    width: 44%;
+    height: 395px;
+    padding: relative;
+    left: 46%;
+    overflow-y: scroll;
+}
+.box-right1{
+
+    width: 50%;
+    height: 395px;
+    float:right;
+    margin-left: 10px;
+    margin-top: 10px;
+    background: rgba(214, 214, 214, 0.767);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
+    border-radius: 2px;
+}
+
 .member__wrap-content{
     flex-wrap: wrap;
     box-sizing: border-box;
@@ -509,9 +534,10 @@ th, tr, td{
 }
 
 .row-request{
-    width: 60%;
+    width: 46%;
     display: inline-block;
     margin: 10px 0;
+    margin-left: 120px;
 }
 
 .one-row-class{
@@ -521,7 +547,6 @@ th, tr, td{
 a {
     text-decoration: none;
 }
-
 
 /* detail CSS */
 .detail-tutor{
