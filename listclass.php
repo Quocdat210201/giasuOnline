@@ -111,18 +111,18 @@
                                         $gc = $row['ghichu'];
                                             echo "<div class='row-request bla-common-shadow'>";
                                                 echo "<div class='one-row-class'>";
-                                                    echo "<div class='row'>";
+                                                    echo "<div class='row class__wrap'>";
                                                         echo "<div class='col-md-8 col-sm-8'>";
                                                             echo "<div class='row-request-2'>";
-                                                                echo "<span style='color: #4e4d4b;'>Lớp: </span>";
-                                                                echo "<span class='group-span'>";
-                                                                    echo "<a href='$chi_tiet' >";
+                                                                echo "<span class= 'class__wrap-lable'>Lớp: </span>";
+                                                                echo "<span class= 'class__wrap-lable'>";
+                                                                    echo "<a  class= 'class__wrap-lable' >";
                                                                         echo $mon;
                                                                         echo "&ensp;";
                                                                     echo "</a>";
                                                                 echo "</span>";
-                                                                echo "<span class='group-span'>";
-                                                                    echo "<a href='$chi_tiet' >";
+                                                                echo "<span class= 'class__wrap-lable'>";
+                                                                    echo "<a class= 'class__wrap-lable'>";
                                                                         echo $ht;
                                                                     echo "</a>";
                                                                 echo"</span>";
@@ -130,32 +130,35 @@
                                                         echo "</div>";
                                                         echo "<div class='col-md-2 col-sm-2'>";
                                                             echo "<div class='row-request-3'>";
-                                                                echo "<span class='green-text' style='color:#eaa419;'>";
-                                                                echo "<span style='color: #4e4d4b;'>Học phí: </span><span style='font-size: 18px;font-weight:bold;color:#eaa419;'>";
-                                                                    echo "<a href='$chi_tiet' >";
+                                                                echo "<span class= 'class__wrap-lable'>";
+                                                                echo "<span class= 'class__wrap-lable'>Học phí: </span>";
+                                                                    echo "<a class= 'class__wrap-lable' href='$chi_tiet' >";
                                                                         echo $hp;
                                                                     echo "</a>";
-                                                                echo "</span> vnđ/Buổi</span>";
+                                                                echo "<span class= 'class__wrap-lable'> vnđ/Buổi</span>";
                                                             echo "</div>";
                                                         echo "</div>";
                                                         echo "<div class='col-md-2 col-sm-2'>";
                                                             echo "<div class='row-request-4'>";
                                                                 echo "<div class='action-group text-right show-when-hover'>";
-                                                                    echo "<span style='color: #4e4d4b;'>Địa chỉ: </span><span>";
-                                                                        echo "<a href='$chi_tiet' >";
+                                                                    echo "<span class='class__wrap-lable'>Địa chỉ: </span>";
+                                                                        echo "<a class= 'class__wrap-lable' href='$chi_tiet' >";
                                                                             echo $dc;
                                                                         echo "</a>";
                                                                     echo "</span>";
                                                                 echo "</div>";
                                                                 echo "<div class='action-group text-right show-when-hover'>";
-                                                                    echo "<span style='color: #4e4d4b;'>Ghi chú: </span><span>";
-                                                                        echo "<a href='$chi_tiet' >";
+                                                                    echo "<span class= 'class__wrap-lable'>Ghi chú: </span>";
+                                                                        echo "<a class= 'class__wrap-lable' href='$chi_tiet' >";
                                                                             echo $gc;
                                                                         echo "</a>";
                                                                     echo "</span>";
                                                                 echo "</div>";
                                                             echo "</div>";
                                                         echo "</div>";
+                                                        echo "<button class = 'class__wrap-btn btn'>
+                                                                <a href = '$chi_tiet'>Xem chi tiết</a>
+                                                            </button>";
                                                     echo "</div>";
                                                 echo "</div>";
                                             echo "</div>";
@@ -178,44 +181,10 @@
                         echo '</div>';
                     ?>
                 </div>
-            <div class="pagination">
-                <ul class="pagination__product">
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">
-                            <i class="pagination__product-icon fas fa-chevron-left"></i>
-                        </a>
-                    </li>
-                    <li class="pagination__product-item pagination__product-item-active">
-                        <a href="" class="pagination__product-link">1</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">2</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">3</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">4</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">5</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">...</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">14</a>
-                    </li>
-                    <li class="pagination__product-item">
-                        <a href="" class="pagination__product-link">
-                            <i class="pagination__product-icon fas fa-chevron-right"></i>
-                        </a>
-                    </li>
-                </ul>
             </div>
         </div>
-
-        <!-- FOOTER -->
+        
         <?php include( 'includes/footer.php');?>
+        <!-- FOOTER -->
 </body>
 </html>

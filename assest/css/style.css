@@ -518,13 +518,11 @@ th, tr, td{
     overflow-y: scroll;
 }
 .box-right1{
-
-    width: 50%;
+    width: 55%;
     height: 395px;
     float:right;
     margin-left: 10px;
     margin-top: 10px;
-    background: rgba(214, 214, 214, 0.767);
     box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 12%), 0 1px 5px 0 rgb(0 0 0 / 20%);
     border-radius: 2px;
 }
@@ -546,15 +544,39 @@ th, tr, td{
     text-align: start;
 }
 
-.row-request{
-    width: 46%;
+.row-request {
+    width: 90%;
     display: inline-block;
     margin: 10px 0;
-    margin-left: 120px;
+}
+
+.row-request-2{
+    margin-top: 10px;
 }
 
 .one-row-class{
-    margin-left:40px;
+    margin-left:26px;
+}
+
+.class__wrap-lable{
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    color: var(--text-color);
+}
+
+.class__wrap-btn {
+    width: 29%;
+    display: block;
+    margin: 10px 0;
+}
+
+.class__wrap-btn a {
+    color: #fff;
+}
+
+.class__wrap{
+    display: flex;
+    flex-direction: column;
 }
 
 a {
@@ -642,8 +664,8 @@ a {
 .member__search-logo {
     position: absolute;
     display: block;
-    right: 7%;
-    top: 3%;
+    right: 2%;
+    top: 23%;
     width: 27%;
     line-height: 1.6rem;
     font-size: 1.4rem;

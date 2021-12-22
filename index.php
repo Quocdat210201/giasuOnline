@@ -281,7 +281,7 @@
                             </p>
                             <button class="regiter__wrap-body-btn btn"> <a href="./Register_as_a_tutor.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
                                 Đăng ký làm gia sư
-                                </a></button>
+                            </a></button>
                         </div>
                     </div>
                 </div>
