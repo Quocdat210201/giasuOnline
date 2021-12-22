@@ -94,7 +94,7 @@
 
                      // User rating
                      $query = "SELECT * FROM tutor_rating WHERE tutorid=".$id." and userid=".$userid;
-                     $userresult = mysqli_query($conn,$query) or die(mysqli_error());
+                     $userresult = mysqli_query($conn,$query) or die(mysqli_error($conn));
                      $fetchRating = mysqli_fetch_array($userresult);
                      $rating = $fetchRating['rating'];
 

@@ -30,63 +30,7 @@
         <div class="content grid wide">
             <!-- Member -->
             <div class="member member-search">
-                <div class="member__search">
-                    <div class="member__search-wrap">
-                        <input type="text" class="member__search-input" placeholder="Tìm kiếm">
-                        <a href="" class="member__search-logo">
-                            <i class="member__search-logo-icon fas fa-search"></i>
-                        </a>
-                    </div>
-                    <div class="member__search-filter">
-                        <div class="member__search-select">
-                            <select name="edit-place" id="" class="from-select">
-                                <option value="">  Chọn địa điểm </option>
-                                <option value="">  Hải Châu</option>
-                                <option value="">  Thanh Khê</option>
-                                <option value="">  Ngũ Hành Sơn </option>
-                                <option value="">  Sơn Trà </option>
-                                <option value="">  Cẩm Lệ</option>
-                                <option value="">  Hòa khánh</option>
-                                <option value="">  Hòa Vang </option>
-                            </select>
-                        </div>
-                        <div class="member__search-select">
-                            <select name="edit-place" id="" class="from-select">
-                                <option value="">  Chọn môn học </option>
-                                <option value="">  Toán cấp 1</option>
-                                <option value="">  Toán cấp 2</option>
-                                <option value="">  Toán cấp 3 </option>
-                                <option value="">  Hóa cấp 1 </option>
-                                <option value="">  Hóa cấp 2</option>
-                                <option value="">  Lý cấp 1</option>
-                                <option value="">  Lý cấp 2</option>
-                                <option value="">  Lý cấp 3</option>
-                                <option value="">  Luyện chữ</option>
-                                <option value="">  Tiếng anh </option>
-                            </select>
-                        </div>
-                        <div class="member__search-select">
-                            <select name="edit-place" id="" class="from-select">
-                                <option value="">  Chọn giới tính </option>
-                                <option value="">  Nam</option>
-                                <option value="">  Nữ</option>
-                            </select>
-                        </div>
-                        <div class="member__search-select">
-                            <select name="edit-place" id="" class="from-select">
-                                <option value="">  Chọn trình độ </option>
-                                <option value="">  Chuyên gia</option>
-                                <option value="">  Đi làm</option>
-                                <option value="">  Người nước ngoài </option>
-                                <option value="">  Giáo viên</option>
-                                <option value="">  Sinh viên</option>
-                            </select>
-                        </div>
-                        <div class="member__search-btn">
-                            <button class="btn">Lọc</button>
-                        </div>
-                    </div>
-                </div>
+               
                 <div class="member__wrap-header">
                     <h4>Danh sách lớp học</h4>
                 </div>
