@@ -2,7 +2,7 @@
 
     include "./includes/connection.php";
 
-    $userid = 1;
+    $userid = $_SESSION['id'];
     $tutorid = $_POST['tutorid'];
     $rating = $_POST['rating'];
 

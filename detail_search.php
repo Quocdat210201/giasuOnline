@@ -47,7 +47,7 @@
                         $.ajax({
                             url: 'rating_ajax.php',
                             type: 'post',
-                            data: {tutorid:id,rating:value},
+                            data: {tutorid:tutorid,rating:value},
                             dataType: 'json',
                             success: function(data){
                                 // Update average
@@ -88,13 +88,15 @@
                 }else {
                     mysqli_set_charset($conn,'utf8');
                     $id = $_GET['id'];
+                    $tutorid = $_GET['id'];
                     $sql = "SELECT * FROM tutor WHERE tutorID = '$id'";
                     $query = mysqli_query($conn,$sql);
                     $data = mysqli_fetch_assoc($query);
 
                      // User rating
+                     $conn = mysqli_connect('localhost','root','','giasuonline');
                      $query = "SELECT * FROM tutor_rating WHERE tutorid=".$id." and userid=".$userid;
-                     $userresult = mysqli_query($conn,$query) or die(mysqli_error());
+                     $userresult = mysqli_query($conn,$query) or die(mysqli_error($conn));
                      $fetchRating = mysqli_fetch_array($userresult);
                      $rating = $fetchRating['rating'];
 

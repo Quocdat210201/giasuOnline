@@ -276,7 +276,9 @@
                             <p class="regiter__wrap-body-text">
                                 Nếu bạn có một khả năng nào đó, hãy đăng ký trở thành gia sư của Trung tâm gia sư WELearn, bạn sẽ được tiếp cận với hàng ngàn học viên và có cơ hội được truyền đạt kiến thức của mình.
                             </p>
-                            <button class="regiter__wrap-body-btn btn">Đăng ký làm gia sư</button>
+                            <button class="regiter__wrap-body-btn btn"> <a href="../Register_as_a_tutor.php" class = "header__btn-link"  style = "font-size: 1.4rem;  text-decoration: none; color: var(--white-color);"  >
+                            Đăng ký làm gia sư
+                        </button>
                         </div>
                     </div>
                 </div>

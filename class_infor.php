@@ -10,7 +10,7 @@
 <body>
 
     <?php
-    $connect = mysqli_connect('127.0.0.1','root','hoangkha17','danhsachlop');
+    $connect = mysqli_connect('localhost','root','','giasuonline');
     mysqli_set_charset($connect,'UTF8');
     $id=$_GET['id'];
     $sql="SELECT * FROM lophoc WHERE id_lop='$id'";
@@ -45,7 +45,7 @@
                             echo '</a>';
                     echo '</p>';
                 echo '</div>';
-    
+
                 echo '<div class="hang4 cot4">';
                     echo '<p>'; echo 'Giới tính:';echo $tutor; echo '</p>';
                         echo '<p>Số lượng học sinh:'; echo $sl; echo '</p>';
@@ -53,12 +53,12 @@
                           echo '</p>';
                     echo '<p>Học Phí:'; echo '<span class="class-tutor-fee">'; echo $hp; echo 'vnđ </span>'; echo '</p>';
                 echo '</div>';
-    
+
                 echo '<div class="hang4 cot4">';
                     echo '<div class="header-study-group-right">';
                         echo '<p>Phí:<span class="connection-fee">'; echo $phi; echo 'VNĐ/Buổi</span></p>';
                         echo '<div class="class-actions">';
-                        echo '<a href="#popup-form" class="popup-modal link-register btn-bluewelearn btn btn-default">Click để nhận lớp</a>';                                
+                        echo '<a href="#popup-form" class="popup-modal link-register btn-bluewelearn btn btn-default">Click để nhận lớp</a>';
                         echo '</div>';
                     echo '</div>';
                 echo '</div>';
